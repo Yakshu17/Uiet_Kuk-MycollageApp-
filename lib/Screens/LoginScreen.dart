@@ -10,8 +10,12 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      body: Center(child: Text("Welcome to Login Screen"),),
-    ));
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+
+      ) ,
+    );
   }
 }
