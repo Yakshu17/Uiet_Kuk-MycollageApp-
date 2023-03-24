@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Screens/LoginScreen.dart';
 import 'package:uiet_kuk/Screens/Splash_Screen.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }
