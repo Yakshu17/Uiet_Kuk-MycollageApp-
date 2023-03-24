@@ -17,7 +17,10 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
+<<<<<<< HEAD
 
+=======
+>>>>>>> a830a39a23992bab776d382a3fa7cd29a718d634
         color: Colors.white,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
