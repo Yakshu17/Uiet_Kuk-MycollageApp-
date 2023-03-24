@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-<<<<<<< HEAD
+
         color: Colors.white,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -53,14 +53,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextFormField(
                     controller: name,
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      hintText: "Name",
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.indigo)
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.indigo)
+                      ),
                       label: Text(
                         "Enter Your Name ",
                         style:
-                            TextStyle(fontSize: 17, fontFamily: 'GoogleFont'),
+                            TextStyle(fontSize: 17, fontFamily: 'GoogleFont', color: Colors.indigo),
                       ),
-                      alignLabelWithHint: false,
                     ),
                   ),
                 ),
@@ -70,12 +73,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: password,
                     obscureText: passwordVisible,
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      hintText: "Password",
-                      labelText: "Password",
-                      helperText: "Password must contain special character",
-                      helperStyle: TextStyle(color: Colors.green),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.indigo
+                        )
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.indigo)
+                      ),
+                      label: Text( "Password",style: TextStyle(color: Colors.indigo)),
                       suffixIcon: IconButton(
+                        color: Colors.indigo,
                         icon: Icon(passwordVisible
                             ? Icons.visibility_off
                             : Icons.visibility),
@@ -102,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: Colors.blueAccent,
+                        color: Colors.indigo,
                         fontFamily: 'googlefont'),
                   ),
                   padding: EdgeInsets.only(left: 160),
@@ -120,9 +128,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'googleFont'),
+                          fontFamily: 'googleFont',
+
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                   ),
@@ -144,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
-                              color: Colors.blueAccent,
+                              color: Colors.indigo,
                               fontFamily: 'googlefont')),
                     ]),
                   ),
@@ -152,24 +163,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-=======
-        child: Column(
-          children:[
-            const SizedBox(height: 60,),
-            const Image(image: AssetImage('assets/images/LoginImage.png',),
-            ),
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [SizedBox(width: 20,height: 30,),
-                Text("Login",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700)),
-              ]
-              
-            )
-
-
-          ],
->>>>>>> 36fd4cc6e3e9e82367b9d1caae55086e0741d513
         ),
       ),
     );
