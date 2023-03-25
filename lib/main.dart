@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home:SplashScreen(),
+      home:NavigationScreen(),
     );
   }
 }
