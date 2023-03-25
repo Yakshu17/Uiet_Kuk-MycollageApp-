@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Utils/utils.dart';
 
 class Profile_Item extends StatelessWidget {
   final IconData icon;
@@ -13,7 +14,7 @@ class Profile_Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Size screenSize = Utils().getScreenSize();
+    Size screenSize = Utils().getScreenSize();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
