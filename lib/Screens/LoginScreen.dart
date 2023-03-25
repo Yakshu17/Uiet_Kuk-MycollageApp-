@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Screens/Signup_Screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -7,8 +10,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final name = TextEditingController();
-  final password = TextEditingController();
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseFirestore firestore=FirebaseFirestore.instance;
 
   bool passwordVisible = true;
 
@@ -52,8 +57,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.85,
                     child: TextFormField(
-                      controller: name,
+                      controller: emailcontroller,
                       decoration: const InputDecoration(
+                        prefixIcon: const Icon(Icons.email_outlined),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.indigo)
                         ),
@@ -61,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderSide: BorderSide(color: Colors.indigo)
                         ),
                         label: Text(
-                          "Enter Your Name ",
+                          "Enter Your Email ",
                           style:
                               TextStyle(fontSize: 17, fontFamily: 'GoogleFont', color: Colors.indigo),
                         ),
@@ -71,9 +77,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.85,
                     child: TextFormField(
-                      controller: password,
+                      controller: passwordcontroller,
                       obscureText: passwordVisible,
                       decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.lock_outline),
                         enabledBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.indigo
@@ -123,7 +130,49 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: MediaQuery.of(context).size.width * 0.85,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        auth .signInWithEmailAndPassword(
+                        email: emailcontroller.text.toString(),
+                        password: passwordcontroller.text)
+                            .then((value) {
+                        Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => const HomeScreen()
+                        )
+                        );
+                        final snackbar = SnackBar(
+                        content: const Text("Login Successfully"),
+                        action: SnackBarAction(
+                        label: "Dismiss",
+                        onPressed: () {},
+                        textColor: Colors.white),
+                        duration: Duration(seconds: 3),
+                        backgroundColor: Colors.green,
+                        behavior: SnackBarBehavior.floating,
+                        );
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(snackbar);
+                        }
+
+                        ).then((value) {
+                        print("Login Successfully");
+                        }).onError((error, stackTrace) {
+                        final snackbar = SnackBar(
+                        content: Text("Some error occurred"),
+                        action: SnackBarAction(
+                        label: "Dismiss",
+                        onPressed: () {},
+                        textColor: Colors.white),
+                        duration: Duration(seconds: 3),
+                        backgroundColor: Colors.red,
+                        behavior: SnackBarBehavior.floating,
+                        );
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(snackbar);
+                        print(error.toString());
+                        });
+                        },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.indigo,
                           shape: RoundedRectangleBorder(
