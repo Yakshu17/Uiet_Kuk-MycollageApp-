@@ -3,6 +3,7 @@ import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Screens/Notification_Screen.dart';
 import 'package:uiet_kuk/Screens/Profile_Screen.dart';
 import 'package:uiet_kuk/Screens/Search_Screen.dart';
+import 'package:uiet_kuk/Screens/model.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({Key? key}) : super(key: key);
@@ -51,7 +52,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ],
           ),
         ),
-        drawer: Drawer(),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              model(icon: Icons.add_moderator, titleText: "Administration", callback: (){}),
+              model(icon: Icons.school, titleText: "Department", callback: (){}),
+              model(icon: Icons.person, titleText: "Faculty", callback: (){}),
+              model(icon: Icons.engineering, titleText: "Admission", callback: (){}),
+            ],
+          ),
+        ),
         body: SafeArea(
           child: PageView(
             controller: controller,
