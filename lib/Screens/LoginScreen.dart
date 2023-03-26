@@ -19,34 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.white,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.85,
-                      height: 250,
-                      child: Image.asset(
-                        "assets/images/LoginImage.png",
-                        fit: BoxFit.fitWidth,
-                      )),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-=======
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -62,7 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 Container(
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
                     width: MediaQuery.of(context).size.width * 0.85,
                     child: const Text(
                       "Login",
@@ -236,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
-      ),
+    
     );
   }
 }

@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uiet_kuk/Auth/authmethods.dart';
-=======
-import 'package:flutter/material.dart';
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
 import 'package:uiet_kuk/Screens/LoginScreen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -16,16 +12,10 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final email = TextEditingController();
   final password = TextEditingController();
-<<<<<<< HEAD
   final rollno= TextEditingController();
   final name =TextEditingController();
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore=FirebaseFirestore.instance;
-=======
-  final mobile =TextEditingController();
-  final rollno= TextEditingController();
-  final name =TextEditingController();
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
 
   bool passwordVisible = true;
 
@@ -162,7 +152,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: 50,
                   child: ElevatedButton(
-<<<<<<< HEAD
                     onPressed: () {
                       auth.createUserWithEmailAndPassword(
                           email: email.text.toString(),
@@ -206,9 +195,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         print(error.toString());
                       });
                       },
-=======
-                    onPressed: () {},
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.indigo,
                         shape: RoundedRectangleBorder(
