@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uiet_kuk/Auth/authmethods.dart';
-=======
-import 'package:flutter/material.dart';
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
 import 'package:uiet_kuk/Screens/LoginScreen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -16,16 +12,10 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final email = TextEditingController();
   final password = TextEditingController();
-<<<<<<< HEAD
-  final rollno= TextEditingController();
-  final name =TextEditingController();
+  final rollno = TextEditingController();
+  final name = TextEditingController();
   final FirebaseAuth auth = FirebaseAuth.instance;
-  final FirebaseFirestore firestore=FirebaseFirestore.instance;
-=======
-  final mobile =TextEditingController();
-  final rollno= TextEditingController();
-  final name =TextEditingController();
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   bool passwordVisible = true;
 
@@ -46,7 +36,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.95,
-                    height: MediaQuery.of(context).size.height *0.4,
+                    height: MediaQuery.of(context).size.height * 0.4,
                     child: Image.asset(
                       "assets/images/Signupimg.png",
                       fit: BoxFit.cover,
@@ -66,16 +56,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: TextFormField(
                     controller: name,
                     decoration: const InputDecoration(
+                      prefixIcon: const Icon(Icons.perm_identity),
                       enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       label: Text(
                         "Enter Name",
-                        style:
-                        TextStyle(fontSize: 17, fontFamily: 'GoogleFont', color: Colors.indigo),
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'GoogleFont',
+                            color: Colors.indigo),
                       ),
                     ),
                   ),
@@ -85,16 +76,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: TextFormField(
                     controller: email,
                     decoration: const InputDecoration(
+                      prefixIcon: const Icon(Icons.email),
                       enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       label: Text(
                         "Enter Kuk Email",
-                        style:
-                        TextStyle(fontSize: 17, fontFamily: 'GoogleFont', color: Colors.indigo),
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'GoogleFont',
+                            color: Colors.indigo),
                       ),
                     ),
                   ),
@@ -105,15 +97,13 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: password,
                     obscureText: passwordVisible,
                     decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.lock_outline),
                       enabledBorder: const UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.indigo
-                          )
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       focusedBorder: const UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
-                      label: const Text( "Enter Password",style: TextStyle(color: Colors.indigo)),
+                          borderSide: BorderSide(color: Colors.indigo)),
+                      label: const Text("Enter Password",
+                          style: TextStyle(color: Colors.indigo)),
                       suffixIcon: IconButton(
                         color: Colors.indigo,
                         icon: Icon(passwordVisible
@@ -121,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             : Icons.visibility),
                         onPressed: () {
                           setState(
-                                () {
+                            () {
                               passwordVisible = !passwordVisible;
                             },
                           );
@@ -138,16 +128,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: TextFormField(
                     controller: rollno,
                     decoration: const InputDecoration(
+                      prefixIcon: const Icon(Icons.numbers),
                       enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo)
-                      ),
+                          borderSide: BorderSide(color: Colors.indigo)),
                       label: Text(
                         "Enter RollNo.",
-                        style:
-                        TextStyle(fontSize: 17, fontFamily: 'GoogleFont', color: Colors.indigo),
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'GoogleFont',
+                            color: Colors.indigo),
                       ),
                     ),
                   ),
@@ -162,20 +153,20 @@ class _SignupScreenState extends State<SignupScreen> {
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: 50,
                   child: ElevatedButton(
-<<<<<<< HEAD
                     onPressed: () {
-                      auth.createUserWithEmailAndPassword(
-                          email: email.text.toString(),
-                          password: password.text.toString(),)
-                      .then((value){
-                         FirebaseFirestore.instance
-                             .collection('Students')
-                             .add({'email':value.user!.email,
-                         });
+                      auth
+                          .createUserWithEmailAndPassword(
+                        email: email.text.toString(),
+                        password: password.text.toString(),
+                      )
+                          .then((value) {
+                        FirebaseFirestore.instance.collection('Students').add({
+                          'email': value.user!.email,
+                        });
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>LoginScreen()));
+                                builder: (context) => LoginScreen()));
                         final snackbar = SnackBar(
                           content: const Text("Login Successfully"),
                           action: SnackBarAction(
@@ -186,8 +177,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           backgroundColor: Colors.green,
                           behavior: SnackBarBehavior.floating,
                         );
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(snackbar);
+                        ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       }).then((value) {
                         print("Login Successfully");
                       }).onError((error, stackTrace) {
@@ -201,14 +191,10 @@ class _SignupScreenState extends State<SignupScreen> {
                           backgroundColor: Colors.red,
                           behavior: SnackBarBehavior.floating,
                         );
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(snackbar);
+                        ScaffoldMessenger.of(context).showSnackBar(snackbar);
                         print(error.toString());
                       });
-                      },
-=======
-                    onPressed: () {},
->>>>>>> f5d013e2515939e3ffb2a0b157afccaecbd77624
+                    },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.indigo,
                         shape: RoundedRectangleBorder(
@@ -219,7 +205,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                         fontFamily: 'googleFont',
-
                       ),
                     ),
                   ),
@@ -240,13 +225,21 @@ class _SignupScreenState extends State<SignupScreen> {
                                 fontFamily: 'googleFont')),
                       ]),
                     ),
-                    TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
-                    }, child: Text("Login",style:TextStyle(
-                        fontSize: 17,
-                        color: Colors.indigo,
-                        fontFamily: 'googleFont') ,)
-                    )
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ));
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.indigo,
+                              fontFamily: 'googleFont'),
+                        ))
                   ],
                 ),
               ],
