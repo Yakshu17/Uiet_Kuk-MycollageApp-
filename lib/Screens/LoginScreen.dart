@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uiet_kuk/Screens/Forgetpass_screen.dart';
-import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Screens/Signup_Screen.dart';
 import 'Navigation_Screen.dart';
 
@@ -61,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextFormField(
                       controller: emailcontroller,
                       decoration: const InputDecoration(
-                        prefixIcon: const Icon(Icons.email_outlined),
+                        prefixIcon: Icon(Icons.email_outlined),
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.indigo)),
                         focusedBorder: UnderlineInputBorder(
@@ -144,14 +143,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => NavigationScreen()));
+                                  builder: (context) => const NavigationScreen()));
                           final snackbar = SnackBar(
                             content: const Text("Login Successfully"),
                             action: SnackBarAction(
                                 label: "Dismiss",
                                 onPressed: () {},
                                 textColor: Colors.white),
-                            duration: Duration(seconds: 3),
+                            duration: const Duration(seconds: 3),
                             backgroundColor: Colors.green,
                             behavior: SnackBarBehavior.floating,
                           );
@@ -160,12 +159,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           print("Login Successfully");
                         }).onError((error, stackTrace) {
                           final snackbar = SnackBar(
-                            content: Text("Some error occurred"),
+                            content: const Text("Some error occurred"),
                             action: SnackBarAction(
                                 label: "Dismiss",
                                 onPressed: () {},
                                 textColor: Colors.white),
-                            duration: Duration(seconds: 3),
+                            duration: const Duration(seconds: 3),
                             backgroundColor: Colors.red,
                             behavior: SnackBarBehavior.floating,
                           );

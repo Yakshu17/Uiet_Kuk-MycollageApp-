@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:uiet_kuk/Screens/Home_Screen.dart';
-import 'package:uiet_kuk/Screens/Signup_Screen.dart';
-
+import 'package:uiet_kuk/Screens/Restpass_screen.dart';
 
 class Forgetpass_Screen extends StatefulWidget {
   @override
@@ -78,7 +76,6 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.85,
                     child: TextFormField(
-                      controller: emailcontroller,
                       decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.email_rounded),
                         enabledBorder: UnderlineInputBorder(
@@ -102,7 +99,9 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
                     width: MediaQuery.of(context).size.width * 0.85,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Resetpass_Screen(),));
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.indigo,
                           shape: RoundedRectangleBorder(
