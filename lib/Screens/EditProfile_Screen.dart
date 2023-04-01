@@ -26,17 +26,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   String Profile_Url="";
 
   Future getGallaryImage()async{
-    var picked_img=await Profile_picker.pickImage(source:ImageSource.gallery,imageQuality: 90 );
+    var picked_img=await Profile_picker.pickImage(source:ImageSource.gallery,imageQuality: 50 );
 
 
       if(picked_img!=null)
         {
-          _Profile_Img=await picked_img.readAsBytes();
+          _Profile_Img=await  picked_img.readAsBytes();
           Utils().ShowSnackBar(context: context, content:"Profile Image Picked !");
         }
       else
         {
-          Utils().ShowSnackBar(context: context, content:"Nothin Is Picked Up !");
+          Utils().ShowSnackBar(context: context, content:"Nothing Is Picked Up !");
         }
       setState(() {
 
@@ -45,7 +45,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   }
 
   Future getCameraImage()async{
-    var picked_img=await Profile_picker.pickImage(source:ImageSource.camera,imageQuality: 90 );
+    var picked_img=await Profile_picker.pickImage(source:ImageSource.camera,imageQuality: 50 );
 
 
     if(picked_img!=null)
@@ -55,7 +55,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     }
     else
     {
-      Utils().ShowSnackBar(context: context, content:"Nothin Is Picked Up !");
+      Utils().ShowSnackBar(context: context, content:"Nothing Is Picked Up !");
     }
     setState(() {
 
@@ -164,17 +164,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     Navigator.pop(context);
 
                                   }, child:Icon(Icons.camera_alt),),
-                                  TextButton(onPressed: (){
-                                    getGallaryImage();
+                                  TextButton(onPressed: ()async{
+                                    await getGallaryImage();
                                     Navigator.pop(context);
                                     print("Image Picked");
                                     if(_Profile_Img==null)
                                       {
                                         return;
                                       }
-
-
-                                    Upload_ProfileImg();
                                     print("====================Image Uploaded -------------");
 
 
@@ -447,20 +444,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 SizedBox(
                   width: screenSize.width*0.85,
                     height: screenSize.height*0.07,
-                    child: ElevatedButton(onPressed: (){
-
-                      if(Profile_Url.isEmpty)
-                        {
-                          Utils().ShowSnackBar(context: context, content:"Pick and Upload Image Properly");
-                        }
-                      else
-                        {
+                    child: ElevatedButton(onPressed: ()async{
                           loading=true;
+
                           setState(() {
 
                           });
+                          await Upload_ProfileImg();
                           String Sid=DateTime.now().millisecondsSinceEpoch.toString();
-                          firestore.doc(Sid).set({
+                         await  firestore.doc(Sid).set({
                             "Sid":Sid,
                             "Profile_Url":Profile_Url,
                             "Student Name":namecontroller.text,
@@ -478,14 +470,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           }).onError((error, stackTrace){
                             Utils().ShowSnackBar(context: context, content:error.toString());
                           });
-                        }
                       loading=false;
                       setState(() {
 
                       });
-                    }, child:loading?CircularProgressIndicator(color: Colors.indigo,):Text("Update Profile"))),
+                    }, child:loading?CircularProgressIndicator(color: Colors.white,):Text("Update Profile"))),
                 SizedBox(height: 50,),
-
 
               ],
             ),
