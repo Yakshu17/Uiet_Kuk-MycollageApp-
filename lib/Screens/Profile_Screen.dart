@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         width: 70,
                       ),
-<<<<<<< HEAD
+
                       IconButton(
                           onPressed: () {
                             Navigator.pushReplacement(
@@ -76,7 +76,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     builder: (context) => LoginScreen()));
                           },
                           icon: Icon(Icons.logout)),
-=======
                       IconButton(onPressed: () {
                         showDialog(context: context, builder:(context) => AlertDialog(
                           content: Text("Are you sure you want logout ?"),
@@ -91,7 +90,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),);
                       }, icon: Icon(Icons.logout)),
->>>>>>> b6364d2ea3e953d53f77405a173457ccb487c6ba
                     ],
                   ),
                 ),
