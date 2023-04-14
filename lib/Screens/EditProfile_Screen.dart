@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,6 +17,7 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  final auth=FirebaseAuth.instance;
 
   CollectionReference firestore=FirebaseFirestore.instance.collection("S_Update_Profile");
 
@@ -452,7 +454,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           });
                           await Upload_ProfileImg();
                           String Sid=DateTime.now().millisecondsSinceEpoch.toString();
-                         await  firestore.doc(Sid).set({
+                          String? email=auth.currentUser!.email;
+                         await  firestore.doc(email).set({
                             "Sid":Sid,
                             "Profile_Url":Profile_Url,
                             "Student Name":namecontroller.text,

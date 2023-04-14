@@ -143,7 +143,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         body: SafeArea(
           child: PageView(
             controller: controller,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             allowImplicitScrolling: false,
             children: [
               HomeScreen(),
