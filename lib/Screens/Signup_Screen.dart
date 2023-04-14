@@ -30,7 +30,7 @@ class _SignupScreenState extends State<SignupScreen> {
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-                const SizedBox(
+                 SizedBox(
                   height: 10,
                 ),
                 Container(
@@ -42,7 +42,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     )),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  child: const Text(
+                  child:  Text(
                     "Signup",
                     style: TextStyle(
                         fontSize: 35,

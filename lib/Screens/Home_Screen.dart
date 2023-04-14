@@ -1,4 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Utils/Constants.dart';
+import 'package:uiet_kuk/Widgets/home_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,39 +18,32 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         child: Column(
           children: [
+             HomeSlider(height: 225,imglist:home_slider,),
+            SizedBox(height: 30),
+
             Container(
-                height: 250,
-                color: Colors.blue,
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  'assets/images/uiet.jpg',
-                  fit: BoxFit.cover,
-                )),
-            SizedBox(height: 20),
-            RichText(
-                text: TextSpan(children: [
-              TextSpan(
-                text: 'WELOME TO ',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 20),
+              padding: EdgeInsets.all(6),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(" WELCOME TO  ",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 21),),
+                  DefaultTextStyle(
+                    style:
+                    const TextStyle(fontSize: 21, color: Colors.indigo,fontWeight: FontWeight.w600),
+                    child: AnimatedTextKit(
+                      repeatForever: true,
+                      pause: const Duration(milliseconds: 700),
+                      animatedTexts: [
+                        TyperAnimatedText("UIET KURUKSHETRA",
+                            speed: const Duration(milliseconds: 150)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              TextSpan(
-                text: 'UIET KURUKSHETRA',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo,
-                    fontSize: 20),
-              ),
-            ])),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 1.5,
-              width: 100,
-              color: Colors.black,
             ),
             SizedBox(
               height: 15,

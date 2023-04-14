@@ -35,6 +35,8 @@ dependencies:
   firebase_storage: ^11.0.16
   cloud_firestore: ^4.4.5
   image_picker: ^0.8.7
+  animated_text_kit: ^4.2.2
+  carousel_slider: ^4.2.1
 
 
 
