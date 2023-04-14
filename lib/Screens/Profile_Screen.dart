@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:uiet_kuk/Screens/EditProfile_Screen.dart';
 import 'package:uiet_kuk/Screens/LoginScreen.dart';
 import 'package:uiet_kuk/Utils/utils.dart';
 import 'package:uiet_kuk/Widgets/Profile_Item.dart';
@@ -66,6 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         width: 70,
                       ),
+<<<<<<< HEAD
                       IconButton(
                           onPressed: () {
                             Navigator.pushReplacement(
@@ -74,6 +76,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     builder: (context) => LoginScreen()));
                           },
                           icon: Icon(Icons.logout)),
+=======
+                      IconButton(onPressed: () {
+                        showDialog(context: context, builder:(context) => AlertDialog(
+                          content: Text("Are you sure you want logout ?"),
+                          actions: [
+                            TextButton(onPressed: (){
+                              Navigator.pop(context);
+                            }, child:Text("Cancel")),
+                            TextButton(onPressed: (){
+                              Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => LoginScreen(),));
+                            }, child:Text("Confirm")),
+
+                          ],
+                        ),);
+                      }, icon: Icon(Icons.logout)),
+>>>>>>> b6364d2ea3e953d53f77405a173457ccb487c6ba
                     ],
                   ),
                 ),
@@ -89,7 +107,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Profile_Item(
                 icon: Icons.person,
                 title: 'Edit Profile',
-                callback: () {},
+                callback: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfileScreen(),));
+                },
               ),
               Profile_Item(
                   title: "Download Content",
