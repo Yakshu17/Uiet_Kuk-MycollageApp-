@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
-import 'package:uiet_kuk/Screens/Notification_Screen.dart';
-import 'package:uiet_kuk/Screens/Profile_Screen.dart';
-import 'package:uiet_kuk/Screens/Search_Screen.dart';
-import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/Profile_Item.dart';
 
-class NavigationScreen extends StatefulWidget {
-  const NavigationScreen({Key? key}) : super(key: key);
+class AdminNavigationScreen extends StatefulWidget {
+  const AdminNavigationScreen({Key? key}) : super(key: key);
 
   @override
-  State<NavigationScreen> createState() => _NavigationScreenState();
+  State<AdminNavigationScreen> createState() => _AdminNavigationScreenState();
 }
 
-class _NavigationScreenState extends State<NavigationScreen> {
+class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
+
   PageController pagecontroller = PageController();
   int _currentIndex = 0;
   int selectedTab = 0;
@@ -32,7 +29,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
       selectedTab = page;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -68,7 +64,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Profile_Item(icon: Icons.home,
                     title: "Home",
                     callback: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationScreen(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
                     }),
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,
@@ -196,12 +192,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 ),
                 Tab(
                   icon: Icon(
-                    Icons.notifications,
+                    Icons.event_note,
                     color: selectedTab == 3 ? Colors.indigo : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
-                    "Notification",
+                    "Notify",
                     style: TextStyle(
                         color: selectedTab == 3 ? Colors.indigo : Colors.black,
                         fontSize: 10,
@@ -213,6 +209,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
           ),
         ),
       ),
-    );
+    );;
   }
 }

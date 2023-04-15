@@ -9,6 +9,11 @@ import 'package:uiet_kuk/Screens/Profile_Screen.dart';
   ProfileScreen(),
 ];
 
+ const List<Widget> AdminPages = [
+  HomeScreen(),
+
+ ];
+
 const List<String> home_slider = [
  "assets/images/uiet.jpg",
  "assets/images/HOME1.png",
