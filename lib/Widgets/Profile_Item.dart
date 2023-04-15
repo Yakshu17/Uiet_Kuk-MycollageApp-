@@ -25,16 +25,16 @@ class Profile_Item extends StatelessWidget {
           child: ListTile(
             title: Text(
               "$title",
-              style: TextStyle(fontSize: 17, color: Colors.black54),
+              style: TextStyle(fontSize: 17, color: Colors.black),
             ),
-            leading: Icon(icon),
+            leading: Icon(icon,color: Colors.black,),
           ),
         ),
         IconButton(
             onPressed: callback,
             icon: Icon(
               Icons.navigate_next,
-              color: Colors.grey,
+              color: Colors.black,
             )),
       ],
     );

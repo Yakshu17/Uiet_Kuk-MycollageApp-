@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/home_slider.dart';
 import 'package:uiet_kuk/Widgets/placement_background_image.dart';
+import 'package:uiet_kuk/Widgets/placement_record_widget.dart';
 
 class PlacementScreen extends StatefulWidget {
   const PlacementScreen({Key? key}) : super(key: key);
@@ -13,8 +14,11 @@ class PlacementScreen extends StatefulWidget {
 }
 
 class _PlacementScreenState extends State<PlacementScreen> {
+  String? selected_course="BTECH";
+
   @override
   Widget build(BuildContext context) {
+    Size screenSize=MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
@@ -56,10 +60,10 @@ class _PlacementScreenState extends State<PlacementScreen> {
               ),
               child: AnimatedTextKit(
                 repeatForever: true,
-                pause: const Duration(milliseconds: 700),
+                pause: const Duration(milliseconds: 1000),
                 animatedTexts: [
                   TyperAnimatedText("UIET KURUKSHETRA",
-                      speed: const Duration(milliseconds: 150)),
+                      speed: const Duration(milliseconds: 350)),
                 ],
               ),
             ),
@@ -115,8 +119,10 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 30,),
+            Container(height: 1,width: double.infinity,color: Colors.black.withOpacity(0.2),),
             SizedBox(
-              height: 40,
+              height: 30,
             ),
             Text(
               'UIET PLACEMENT RECORDS',
@@ -131,8 +137,110 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   ]),
             ),
             SizedBox(
-              height: 30,
+              height: 50,
             ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text("Select Your Course ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+                Container(
+                  height: 50,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Color.fromRGBO(213, 217, 220,0.6),),
+                  width: screenSize.width * 0.4,
+                  padding: EdgeInsets.only(left: 15,top: 5),
+                  child: DropdownButtonFormField<String>(
+
+                    alignment: Alignment.topCenter,
+                    decoration: InputDecoration(
+                      border: InputBorder.none
+                    ),
+                    hint: Text("BTECH",style: TextStyle(
+                        fontSize: 13,
+                        fontFamily: 'GoogleFont',
+                        color: Colors.black),),
+                    value: selected_course,
+                    items: courses.map((e) {
+                      return DropdownMenuItem(
+                        child: Text(e,style: TextStyle(fontSize: 13),),
+                        value: e,
+                      );
+                    }).toList(),
+                    onChanged: (val) {
+                      setState(() {
+                        selected_course=val;
+                      });
+
+                    },
+                  ),
+                ),
+
+              ],
+            ),
+            SizedBox(height: 50,),
+            selected_course=='BTECH'?
+            Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text("BTECH Branches"),
+                  ),
+                  Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
+                ],
+              ),
+              SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  PlacementRecordWidget(callback: (){},branchtext: "CSE Records",img_url: 'assets/images/csebk.jpg'),
+                  PlacementRecordWidget(callback: (){},branchtext: "ECE Records",img_url: 'assets/images/ecebk.jpg'),
+                ],
+              ),
+              SizedBox(height: 30,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  PlacementRecordWidget(callback: (){},branchtext: "ME Records",img_url: 'assets/images/mebk.jpg'),
+                  PlacementRecordWidget(callback: (){},branchtext: "BIOTECH Records",img_url: 'assets/images/biotechbk.jpg'),
+                ],
+              ),
+            ],):
+            Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text("MTECH Branches"),
+                  ),
+                  Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
+                ],
+              ),
+              SizedBox(height: 30,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  PlacementRecordWidget(callback: (){},branchtext: "CSE Records",img_url: 'assets/images/mtech.jpg'),
+                  PlacementRecordWidget(callback: (){},branchtext: "ECE Records",img_url: 'assets/images/ecebk.jpg'),
+                ],
+              ),
+              SizedBox(height: 30,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  PlacementRecordWidget(callback: (){},branchtext: "ME Records",img_url: 'assets/images/mebk.jpg'),
+                  PlacementRecordWidget(callback: (){},branchtext: "EE Records",img_url: 'assets/images/eebk.jpg'),
+                ],
+              ),
+            ],),
+            SizedBox(height: 50,),
+
 
           ],
         ),

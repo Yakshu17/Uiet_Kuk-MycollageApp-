@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Utils/Constants.dart';
 
 class AddPlacementDetails extends StatefulWidget {
    const AddPlacementDetails({Key? key}) : super(key: key);
@@ -17,13 +18,7 @@ class _AddPlacementDetailsState extends State<AddPlacementDetails> {
   String? selected_branch;
   String? selected_session;
 
-  List<String> courses = ["BTECH", "MTECH"];
-  Map<String, List<String>> courseTobranch = {
-    "BTECH": ["CSE B", "CSE A", "ECE B", "ECE A", "ME B", "ME A", "BT"],
-    "MTECH": ["CSE", "ECE", "EE"]
-  };
 
-  List<String> sessions = ['2017-2021', '2018-2022', '2019-2023', '2020-2024',];
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
     return SafeArea(

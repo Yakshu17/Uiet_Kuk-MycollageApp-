@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Screens/Notification_Screen.dart';
 import 'package:uiet_kuk/Screens/Profile_Screen.dart';
@@ -42,34 +43,82 @@ class _NavigationScreenState extends State<NavigationScreen> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
+            actions: [
+
+              Padding(
+                padding: const EdgeInsets.only(top:10.0,right: 10,bottom: 7),
+                child: InkWell(
+                  onTap: (){
+
+                  },
+                  child: Container(
+                    height: 30,
+                    width: 120,
+                    child: Center(
+                      child: Text(
+                        "Apply Now",
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.orange),
+                  ),
+                ),
+              ),
+              SizedBox(width: 5,),
+              IconButton(onPressed: (){
+                showDialog(context: context, builder:(context) => AlertDialog(
+                  content: Text("Are you sure you want logout ?"),
+                  actions: [
+                    TextButton(onPressed: (){
+                      Navigator.pop(context);
+                    }, child:Text("Cancel")),
+                    TextButton(onPressed: (){
+                      Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) =>const AdminLogin(),));
+                    }, child:Text("Confirm")),
+
+                  ],
+                ),);
+              }, icon:Icon(Icons.logout)),
+
+            ],
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(4),
+              child: Container(),
+            ),
           ),
           body: PageView(
               physics: const NeverScrollableScrollPhysics(),
               allowImplicitScrolling: false,
               controller: pagecontroller,
               children: pages),
-
           drawer: Drawer(
             child: ListView(
               children: [
                 const UserAccountsDrawerHeader(
-                  accountName:
-                  Text("UIET", style: TextStyle(fontWeight: FontWeight.w800)),
+                  accountName: Text("UIET",
+                      style: TextStyle(fontWeight: FontWeight.w800)),
                   accountEmail: Text(
                     "KURUKSHETRA UNIVERSITY",
                     style: TextStyle(fontWeight: FontWeight.w700),
                   ),
                   currentAccountPictureSize: Size.square(80),
-                  currentAccountPicture:
-                  CircleAvatar(
-
-                    backgroundImage:
-                    AssetImage('assets/images/KU_logo_without_name.png', ),
+                  currentAccountPicture: CircleAvatar(
+                    foregroundImage: AssetImage(
+                      'assets/images/KU_logo_without_name.png',
+                    ),
                   ),
                 ),
-                Profile_Item(icon: Icons.home, title: "Home", callback: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationScreen(),));
-                }),
+                Profile_Item(
+                    icon: Icons.home,
+                    title: "Home",
+                    callback: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavigationScreen(),
+                          ));
+                    }),
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,
                     title: "Administration",
@@ -93,7 +142,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     title: "IIC/STARTUP",
                     callback: () {}),
                 Profile_Item(
-                    icon: Icons.engineering, title: "T&P Cell", callback: () {}),
+                    icon: Icons.engineering,
+                    title: "T&P Cell",
+                    callback: () {}),
                 Profile_Item(
                     icon: FontAwesomeIcons.userGraduate,
                     title: "Alumni",
@@ -128,11 +179,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     callback: () {}),
               ],
             ),
-          ) ,
-
+          ),
           bottomNavigationBar: Container(
             height: 55,
-            margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10,top: 5),
+            margin:
+                const EdgeInsets.only(bottom: 10, left: 10, right: 10, top: 5),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: const [
@@ -167,7 +218,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   ),
                 ),
                 Tab(
-                  icon: Icon(Icons.trending_up_sharp,
+                  icon: Icon(
+                    Icons.trending_up_sharp,
                     color: selectedTab == 1 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
@@ -180,7 +232,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   ),
                 ),
                 Tab(
-                  icon: Icon(FontAwesomeIcons.graduationCap,
+                  icon: Icon(
+                    FontAwesomeIcons.graduationCap,
                     color: selectedTab == 2 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
@@ -214,11 +267,3 @@ class _NavigationScreenState extends State<NavigationScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-

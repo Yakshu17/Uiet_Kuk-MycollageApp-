@@ -1,8 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/home_slider.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,31 +19,40 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         child: Column(
           children: [
-             HomeSlider(height: 225,imglist:home_slider,),
+            HomeSlider(
+              height: 225,
+              imglist: home_slider,
+            ),
             SizedBox(height: 30),
-
             Container(
               padding: EdgeInsets.all(6),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(" WELCOME TO  ",style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      fontSize: 21,shadows: [
-                    Shadow(
-                      color: Colors.black.withOpacity(0.6),
-                      blurRadius: 2,
-                    )
-                  ]),),
+                  Text(
+                    " WELCOME TO  ",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 21,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.6),
+                            blurRadius: 2,
+                          )
+                        ]),
+                  ),
                   DefaultTextStyle(
-                    style:
-                    const TextStyle(fontSize: 21, color: Colors.orange,fontWeight: FontWeight.w600,shadows: [
-                      Shadow(
+                    style: const TextStyle(
+                        fontSize: 21,
                         color: Colors.orange,
-                        blurRadius: 2,
-                      )
-                    ]),
+                        fontWeight: FontWeight.w600,
+                        shadows: [
+                          Shadow(
+                            color: Colors.orange,
+                            blurRadius: 2,
+                          )
+                        ]),
                     child: AnimatedTextKit(
                       repeatForever: true,
                       pause: const Duration(milliseconds: 700),
@@ -53,7 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 40,),
+                  SizedBox(
+                    height: 40,
+                  ),
                 ],
               ),
             ),
@@ -67,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   'University Institute of Engineering & Technology (UIET) was established by Kurukshetra University '
                   'in 2004 with objective to develop as a "Centre of Excellence" and offer quality technical '
                   'education and to undertake research in Engineering & Technology',
-                  style: TextStyle(fontSize: 15, color: Colors.black87,letterSpacing: 0.4),
+                  style: TextStyle(
+                      fontSize: 15, color: Colors.black87, letterSpacing: 0.4),
                 ),
               ),
             ),
@@ -76,7 +88,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                   'Presently, the institute is offering four B. Tech (Computer Science & Engineering,'
                   ' Electronics and Communication Engineering, Biotechnology and Mechanical Engineering) ',
-                  style: TextStyle(fontSize: 15, color: Colors.black87,letterSpacing: 0.4)),
+                  style: TextStyle(
+                      fontSize: 15, color: Colors.black87, letterSpacing: 0.4)),
             ),
             Padding(
               padding: EdgeInsets.all(8),
@@ -85,7 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ' Electronics and Communication Engineering, Mechanical Engg. (with the specialization of'
                   ' Industrial & Production Engg., and Thermal Engg.), Biotechnology, Defence Technology and'
                   ' Electrical Engg.',
-                  style: TextStyle(fontSize: 15, color: Colors.black87,letterSpacing: 0.4)),
+                  style: TextStyle(
+                      fontSize: 15, color: Colors.black87, letterSpacing: 0.4)),
             ),
             SizedBox(
               height: 30,
@@ -208,8 +222,11 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               child: Text(
                 'COURSES OFFERED BY UIET',
-                style:
-                    TextStyle(color: Colors.black87, fontWeight: FontWeight.bold,fontSize: 20,shadows: [
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    shadows: [
                       Shadow(
                         color: Colors.black.withOpacity(0.6),
                         blurRadius: 2,
@@ -217,48 +234,46 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]),
               ),
             ),
-            SizedBox(height: 10,),
-            Container(height: 2,width: 70,color: Colors.grey,),
-            SizedBox(height: 35,),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 2,
+              width: 70,
+              color: Colors.grey,
+            ),
+            SizedBox(
+              height: 35,
+            ),
             Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: (){},
-                      child: Container(height: 100,width: MediaQuery.of(context).size.width*0.45,color: Colors.black12.withOpacity(0.06),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/images/laptop.png',height: 40,width: 130,),
-                          SizedBox(height: 5,),
-                          Text('Computer Science & Eng',style: TextStyle(fontSize:9),),
-                          SizedBox(height: 5,),
-                          Container(
-                            height: 20,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.indigo,
+                      onTap: () {},
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        color: Colors.black12.withOpacity(0.06),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/laptop.png',
+                              height: 40,
+                              width: 130,
                             ),
-
-                            child: Center(child: Text("Read More",style: TextStyle(fontSize: 6,color: Colors.white),)),
-                          )
-
-                        ],
-                      ),),
-                    ),
-                    InkWell(
-                      onTap: (){},
-                      child: Container(height: 100,width: MediaQuery.of(context).size.width*0.45,color: Colors.black12.withOpacity(0.06),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset('assets/images/cpu.png',height: 40,width: 130,),
-                            SizedBox(height: 5,),
-                            Text('Electronics & Communication Eng',style: TextStyle(fontSize:9),),
-                            SizedBox(height: 5,),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Computer Science & Eng',
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Container(
                               height: 20,
                               width: 50,
@@ -266,29 +281,91 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-
-                              child: Center(child: Text("Read More",style: TextStyle(fontSize: 6,color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Read More",
+                                style:
+                                    TextStyle(fontSize: 6, color: Colors.white),
+                              )),
                             )
-
                           ],
-                        ),),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        color: Colors.black12.withOpacity(0.06),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/cpu.png',
+                              height: 40,
+                              width: 130,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Electronics & Communication Eng',
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              height: 20,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.indigo,
+                              ),
+                              child: Center(
+                                  child: Text(
+                                "Read More",
+                                style:
+                                    TextStyle(fontSize: 6, color: Colors.white),
+                              )),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: (){},
-                      child: Container(height: 100,width: MediaQuery.of(context).size.width*0.45,color: Colors.black12.withOpacity(0.06),
+                      onTap: () {},
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        color: Colors.black12.withOpacity(0.06),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/mechanic.png',height: 40,width: 130,),
-                            SizedBox(height: 5,),
-                            Text('Mechanical Engineering',style: TextStyle(fontSize:9),),
-                            SizedBox(height: 5,),
+                            Image.asset(
+                              'assets/images/mechanic.png',
+                              height: 40,
+                              width: 130,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Mechanical Engineering',
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Container(
                               height: 20,
                               width: 50,
@@ -296,23 +373,41 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-
-                              child: Center(child: Text("Read More",style: TextStyle(fontSize: 6,color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Read More",
+                                style:
+                                    TextStyle(fontSize: 6, color: Colors.white),
+                              )),
                             )
-
                           ],
-                        ),),
+                        ),
+                      ),
                     ),
                     InkWell(
-                      onTap: (){},
-                      child: Container(height: 100,width: MediaQuery.of(context).size.width*0.45,color: Colors.black12.withOpacity(0.06),
+                      onTap: () {},
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        color: Colors.black12.withOpacity(0.06),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/biotech.png',height: 40,width: 130,),
-                            SizedBox(height: 5,),
-                            Text('Bio Technology Dept',style: TextStyle(fontSize:9),),
-                            SizedBox(height: 5,),
+                            Image.asset(
+                              'assets/images/biotech.png',
+                              height: 40,
+                              width: 130,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Bio Technology Dept',
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Container(
                               height: 20,
                               width: 50,
@@ -320,30 +415,49 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-
-                              child: Center(child: Text("Read More",style: TextStyle(fontSize: 6,color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Read More",
+                                style:
+                                    TextStyle(fontSize: 6, color: Colors.white),
+                              )),
                             )
-
                           ],
-                        ),),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20,),
-
+                SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: (){},
-                      child: Container(height: 100,width: MediaQuery.of(context).size.width*0.45,color: Colors.black12.withOpacity(0.06),
+                      onTap: () {},
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        color: Colors.black12.withOpacity(0.06),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/electrical.png',height: 40,width: 130,),
-                            SizedBox(height: 5,),
-                            Text('Electrical Engineering Dept',style: TextStyle(fontSize:9),),
-                            SizedBox(height: 5,),
+                            Image.asset(
+                              'assets/images/electrical.png',
+                              height: 40,
+                              width: 130,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Electrical Engineering Dept',
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Container(
                               height: 20,
                               width: 50,
@@ -351,23 +465,41 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-
-                              child: Center(child: Text("Read More",style: TextStyle(fontSize: 6,color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Read More",
+                                style:
+                                    TextStyle(fontSize: 6, color: Colors.white),
+                              )),
                             )
-
                           ],
-                        ),),
+                        ),
+                      ),
                     ),
                     InkWell(
-                      onTap: (){},
-                      child: Container(height: 100,width: MediaQuery.of(context).size.width*0.45,color: Colors.black12.withOpacity(0.06),
+                      onTap: () {},
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width * 0.45,
+                        color: Colors.black12.withOpacity(0.06),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/science.png',height: 40,width: 130,),
-                            SizedBox(height: 5,),
-                            Text('Applied Science Dept',style: TextStyle(fontSize:9),),
-                            SizedBox(height: 5,),
+                            Image.asset(
+                              'assets/images/science.png',
+                              height: 40,
+                              width: 130,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Applied Science Dept',
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Container(
                               height: 20,
                               width: 50,
@@ -375,25 +507,48 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-
-                              child: Center(child: Text("Read More",style: TextStyle(fontSize: 6,color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Read More",
+                                style:
+                                    TextStyle(fontSize: 6, color: Colors.white),
+                              )),
                             )
-
                           ],
-                        ),),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                SizedBox(height: 50,),
-                Text("OUR RECRUITERS",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.6),
-                    blurRadius: 2,
-                  )
-                ]),),
-                SizedBox(height: 5,),
-                Container(height: 2,width: 70,color: Colors.grey,),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  "OUR RECRUITERS",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withOpacity(0.6),
+                          blurRadius: 2,
+                        )
+                      ]),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  height: 2,
+                  width: 70,
+                  color: Colors.grey,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder:  (context) => NavigationScreen(),));
+                }, child:Text("Placement Section"))
               ],
             ),
           ],

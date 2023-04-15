@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
+import 'package:uiet_kuk/Screens/LoginScreen.dart';
+import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
+import 'package:uiet_kuk/Widgets/custom_animated_white_btn.dart';
 
 class AdminLogin extends StatefulWidget {
   const AdminLogin({Key? key}) : super(key: key);
@@ -32,9 +35,21 @@ class _AdminLoginState extends State<AdminLogin> {
               const SizedBox(
                 height: 30,
               ),
-              Text("UIET",style: TextStyle(fontSize: 27,fontWeight: FontWeight.w700,fontFamily: "Googlefont"),),
-              SizedBox(height: 12,),
-              Text("KURUKSHETRA UNIVERSITY",style: TextStyle(fontSize: 22,fontWeight: FontWeight.w700,)),
+              Text(
+                "UIET",
+                style: TextStyle(
+                    fontSize: 27,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "Googlefont"),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              Text("KURUKSHETRA UNIVERSITY",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                  )),
 
               SizedBox(
                 height: 40,
@@ -50,9 +65,15 @@ class _AdminLoginState extends State<AdminLogin> {
                       backgroundColor: Colors.white),
                   child: Text(
                     "Login As Admin",
-                    style: TextStyle(color: Colors.indigo, fontSize: 16),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        ));
+                  },
                 ),
               ),
               SizedBox(height: 30),
@@ -68,14 +89,15 @@ class _AdminLoginState extends State<AdminLogin> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(19))),
                   child: Text(
-                    "Continue without Login",
-                    style: TextStyle(color: Colors.indigo, fontSize: 16),
+                    "Continue Without Login",
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                   onPressed: () {
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                   Navigator.push(context, MaterialPageRoute(builder: (context) =>  NavigationScreen(),));
                   },
                 ),
               ),
+
             ],
           ),
         ),

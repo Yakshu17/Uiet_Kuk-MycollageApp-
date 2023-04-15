@@ -37,6 +37,7 @@ dependencies:
   image_picker: ^0.8.7
   animated_text_kit: ^4.2.2
   carousel_slider: ^4.2.1
+  flutter_animated_button: ^2.0.3
 
 
 
