@@ -16,8 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: SingleChildScrollView(
+      body: SafeArea(child: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
@@ -68,6 +67,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         width: 70,
                       ),
+
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));
+                          },
+                          icon: Icon(Icons.logout)),
                       IconButton(onPressed: () {
                         showDialog(context: context, builder:(context) => AlertDialog(
                           content: Text("Are you sure you want logout ?"),
@@ -131,9 +139,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Text(
                     "UIET KUK",
                     style: TextStyle(
-                        color: Colors.indigo,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                      color: Colors.indigo,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(

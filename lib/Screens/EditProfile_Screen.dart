@@ -104,16 +104,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
-    print(namecontroller.text);
-    print(skillbiocontroller.text);
-    print(mobilecontroller.text);
-    print(selected_course);
-    print(selected_branch);
-    print(graduationyearcontroller.text);
-    print(selected_gender);
-    print(addresscontroller.text);
-    print(selectedboardingtype);
-    return SafeArea(
+        return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
