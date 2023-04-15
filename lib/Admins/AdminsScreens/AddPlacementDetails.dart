@@ -24,6 +24,11 @@ class _AddPlacementDetailsState extends State<AddPlacementDetails> {
   };
 
   List<String> sessions = ['2017-2021', '2018-2022', '2019-2023', '2020-2024',];
+
+  void storeData() {
+
+  }
+
   Widget build(BuildContext context) {
     Size screenSize=MediaQuery.of(context).size;
     return SafeArea(
@@ -239,7 +244,9 @@ class _AddPlacementDetailsState extends State<AddPlacementDetails> {
                           borderRadius: BorderRadius.circular(10)
                       )
                   ),
-                  onPressed: (){},
+                  onPressed: (){
+                    return storeData();
+                  },
                   child: Text("Submit",style: TextStyle(fontSize: 20),),
                 ),
               ),

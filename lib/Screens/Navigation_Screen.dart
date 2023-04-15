@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:uiet_kuk/Screens/Home_Screen.dart';
+import 'package:uiet_kuk/Admins/AdminsScreens/AdminNavigationScreen.dart';
 import 'package:uiet_kuk/Screens/Notification_Screen.dart';
 import 'package:uiet_kuk/Screens/Profile_Screen.dart';
 import 'package:uiet_kuk/Screens/Search_Screen.dart';
@@ -39,7 +39,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
       length: 4,
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.black),
+          ),
           body: PageView(
               physics: const NeverScrollableScrollPhysics(),
               allowImplicitScrolling: false,
@@ -68,7 +71,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Profile_Item(icon: Icons.home,
                     title: "Home",
                     callback: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationScreen(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminNavigationScreen(),));
                     }),
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,
@@ -157,39 +160,39 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Tab(
                   icon: Icon(
                     Icons.home_outlined,
-                    color: selectedTab == 0 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 0 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Home",
                     style: TextStyle(
-                        color: selectedTab == 0 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 0 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
                   icon: Icon(Icons.trending_up_sharp,
-                    color: selectedTab == 1 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 1 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Placement",
                     style: TextStyle(
-                        color: selectedTab == 1 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 1 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
                   icon: Icon(FontAwesomeIcons.graduationCap,
-                    color: selectedTab == 2 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 2 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Admission",
                     style: TextStyle(
-                        color: selectedTab == 2 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 2 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
@@ -197,13 +200,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Tab(
                   icon: Icon(
                     Icons.notifications,
-                    color: selectedTab == 3 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 3 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Notification",
                     style: TextStyle(
-                        color: selectedTab == 3 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 3 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),

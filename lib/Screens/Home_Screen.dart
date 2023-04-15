@@ -30,10 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(" WELCOME TO  ",style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontSize: 21),),
+                      fontSize: 21,shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.6),
+                      blurRadius: 2,
+                    )
+                  ]),),
                   DefaultTextStyle(
                     style:
-                    const TextStyle(fontSize: 21, color: Colors.indigo,fontWeight: FontWeight.w600),
+                    const TextStyle(fontSize: 21, color: Colors.orange,fontWeight: FontWeight.w600,shadows: [
+                      Shadow(
+                        color: Colors.orange,
+                        blurRadius: 2,
+                      )
+                    ]),
                     child: AnimatedTextKit(
                       repeatForever: true,
                       pause: const Duration(milliseconds: 700),
@@ -43,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 40,),
                 ],
               ),
             ),
@@ -56,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'University Institute of Engineering & Technology (UIET) was established by Kurukshetra University '
                   'in 2004 with objective to develop as a "Centre of Excellence" and offer quality technical '
                   'education and to undertake research in Engineering & Technology',
-                  style: TextStyle(fontSize: 13, color: Colors.black87),
+                  style: TextStyle(fontSize: 15, color: Colors.black87,letterSpacing: 0.4),
                 ),
               ),
             ),
@@ -65,16 +76,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                   'Presently, the institute is offering four B. Tech (Computer Science & Engineering,'
                   ' Electronics and Communication Engineering, Biotechnology and Mechanical Engineering) ',
-                  style: TextStyle(fontSize: 13, color: Colors.black87)),
+                  style: TextStyle(fontSize: 15, color: Colors.black87,letterSpacing: 0.4)),
             ),
             Padding(
               padding: EdgeInsets.all(8),
               child: Text(
-                  'Seven M. Tech. course in the technically important disciplines Computer Science & Engineering,'
+                  'Seven M.Tech. course in the technically important disciplines Computer Science & Engineering,'
                   ' Electronics and Communication Engineering, Mechanical Engg. (with the specialization of'
                   ' Industrial & Production Engg., and Thermal Engg.), Biotechnology, Defence Technology and'
                   ' Electrical Engg.',
-                  style: TextStyle(fontSize: 13, color: Colors.black87)),
+                  style: TextStyle(fontSize: 15, color: Colors.black87,letterSpacing: 0.4)),
             ),
             SizedBox(
               height: 30,
@@ -198,7 +209,12 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'COURSES OFFERED BY UIET',
                 style:
-                    TextStyle(color: Colors.black87, fontWeight: FontWeight.bold,fontSize: 20),
+                    TextStyle(color: Colors.black87, fontWeight: FontWeight.bold,fontSize: 20,shadows: [
+                      Shadow(
+                        color: Colors.black.withOpacity(0.6),
+                        blurRadius: 2,
+                      )
+                    ]),
               ),
             ),
             SizedBox(height: 10,),
@@ -369,7 +385,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 SizedBox(height: 50,),
-                Text("OUR RECRUITERS",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                Text("OUR RECRUITERS",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,shadows: [
+                  Shadow(
+                    color: Colors.black.withOpacity(0.6),
+                    blurRadius: 2,
+                  )
+                ]),),
                 SizedBox(height: 5,),
                 Container(height: 2,width: 70,color: Colors.grey,),
                 SizedBox(height: 30,),

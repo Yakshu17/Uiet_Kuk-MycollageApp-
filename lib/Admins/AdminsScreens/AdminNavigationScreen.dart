@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
+import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/Profile_Item.dart';
 
 class AdminNavigationScreen extends StatefulWidget {
@@ -40,7 +41,7 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
               physics: const NeverScrollableScrollPhysics(),
               allowImplicitScrolling: false,
               controller: pagecontroller,
-              children: pages),
+              children: AdminPages),
 
           drawer: Drawer(
             child: ListView(
