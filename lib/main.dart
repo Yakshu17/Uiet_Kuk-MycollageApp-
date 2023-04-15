@@ -7,6 +7,8 @@ import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
 import 'package:uiet_kuk/Screens/Signup_Screen.dart';
 import 'package:uiet_kuk/Screens/Splash_Screen.dart';
 
+import 'Admins/AdminsScreens/AdminLoginScreen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: SplashScreen(),
+      home: AdminLogin(),
     );
   }
 }
