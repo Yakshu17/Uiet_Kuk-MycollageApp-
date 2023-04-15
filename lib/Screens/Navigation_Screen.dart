@@ -39,7 +39,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
       length: 4,
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.black),
+          ),
           body: PageView(
               physics: const NeverScrollableScrollPhysics(),
               allowImplicitScrolling: false,
@@ -152,39 +155,39 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Tab(
                   icon: Icon(
                     Icons.home_outlined,
-                    color: selectedTab == 0 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 0 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Home",
                     style: TextStyle(
-                        color: selectedTab == 0 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 0 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
                   icon: Icon(Icons.trending_up_sharp,
-                    color: selectedTab == 1 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 1 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Placement",
                     style: TextStyle(
-                        color: selectedTab == 1 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 1 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
                   icon: Icon(FontAwesomeIcons.graduationCap,
-                    color: selectedTab == 2 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 2 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Admission",
                     style: TextStyle(
-                        color: selectedTab == 2 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 2 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
@@ -192,13 +195,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Tab(
                   icon: Icon(
                     Icons.notifications,
-                    color: selectedTab == 3 ? Colors.indigo : Colors.black,
+                    color: selectedTab == 3 ? Colors.orange : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Notification",
                     style: TextStyle(
-                        color: selectedTab == 3 ? Colors.indigo : Colors.black,
+                        color: selectedTab == 3 ? Colors.orange : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
@@ -218,85 +221,4 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
 
 
-/*
-drawer: Drawer(
-          child: ListView(
-            children: [
-              const UserAccountsDrawerHeader(
-                accountName:
-                    Text("UIET", style: TextStyle(fontWeight: FontWeight.w800)),
-                accountEmail: Text(
-                  "KURUKSHETRA UNIVERSITY",
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                currentAccountPictureSize: Size.square(80),
-                currentAccountPicture:
-                    CircleAvatar(
 
-                    backgroundImage:
-                        AssetImage('assets/images/KU_logo_without_name.png', ),
-                  ),
-              ),
-              Profile_Item(icon: Icons.home, title: "Home", callback: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationScreen(),));
-              }),
-              Profile_Item(
-                  icon: Icons.admin_panel_settings_sharp,
-                  title: "Administration",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.building,
-                  title: "Departments",
-                  callback: () {}),
-              Profile_Item(
-                  icon: Icons.person, title: "Faculties", callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.graduationCap,
-                  title: "Admission",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.buildingColumns,
-                  title: "Academic",
-                  callback: () {}),
-              Profile_Item(
-                  icon: Icons.build_rounded,
-                  title: "IIC/STARTUP",
-                  callback: () {}),
-              Profile_Item(
-                  icon: Icons.engineering, title: "T&P Cell", callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.userGraduate,
-                  title: "Alumni",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.paste,
-                  title: "Exams",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.squarePollVertical,
-                  title: "Results",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.download,
-                  title: "Downloads",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.peopleGroup,
-                  title: "Clubs",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.palette,
-                  title: "Events",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.cameraRetro,
-                  title: "Gallery",
-                  callback: () {}),
-              Profile_Item(
-                  icon: FontAwesomeIcons.comment,
-                  title: "Complaints",
-                  callback: () {}),
-            ],
-          ),
-        ),
-*/
