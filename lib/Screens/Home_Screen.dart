@@ -555,11 +555,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ]),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 12,
                 ),
-                HomeSlider(
-                  height: 100,
-                  imglist: recruiter_slider,
+                Container(
+                  width: 350,
+                  child: HomeSlider(
+                    height: 150,
+                    imglist: recruiter_slider,
+                  ),
                 ),
                 SizedBox(
                   height: 50,
