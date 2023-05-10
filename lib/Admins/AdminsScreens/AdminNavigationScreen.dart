@@ -2,22 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
-import 'package:uiet_kuk/Admins/AdminsScreens/AdminNavigationScreen.dart';
-import 'package:uiet_kuk/Screens/Notification_Screen.dart';
-import 'package:uiet_kuk/Screens/Profile_Screen.dart';
-import 'package:uiet_kuk/Screens/Search_Screen.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/Profile_Item.dart';
-import 'package:uiet_kuk/Widgets/Student_AppBar.dart';
 
-class NavigationScreen extends StatefulWidget {
-  const NavigationScreen({Key? key}) : super(key: key);
+class AdminNavigationScreen extends StatefulWidget {
+  const AdminNavigationScreen({Key? key}) : super(key: key);
 
   @override
-  State<NavigationScreen> createState() => _NavigationScreenState();
+  State<AdminNavigationScreen> createState() => _AdminNavigationScreenState();
 }
 
-class _NavigationScreenState extends State<NavigationScreen> {
+class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
+
   PageController pagecontroller = PageController();
   int _currentIndex = 0;
   int selectedTab = 0;
@@ -35,34 +31,51 @@ class _NavigationScreenState extends State<NavigationScreen> {
       selectedTab = page;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: SafeArea(
         child: Scaffold(
-          appBar: StudentAppBar(),
+          appBar: AppBar(actions: [
+            IconButton(onPressed: (){
+              showDialog(context: context, builder:(context) => AlertDialog(
+                content: Text("Are you sure you want logout ?"),
+                actions: [
+                  TextButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, child:Text("Cancel")),
+                  TextButton(onPressed: (){
+                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) =>const AdminLogin(),));
+                  }, child:Text("Confirm")),
+
+                ],
+              ),);
+            }, icon:Icon(Icons.logout)),
+          ],),
+
           body: PageView(
               physics: const NeverScrollableScrollPhysics(),
               allowImplicitScrolling: false,
               controller: pagecontroller,
-              children: pages),
+              children: AdminPages),
+
           drawer: Drawer(
             child: ListView(
               children: [
                 const UserAccountsDrawerHeader(
-                  accountName: Text("UIET",
-                      style: TextStyle(fontWeight: FontWeight.w800)),
+                  accountName:
+                  Text("UIET", style: TextStyle(fontWeight: FontWeight.w800)),
                   accountEmail: Text(
                     "KURUKSHETRA UNIVERSITY",
                     style: TextStyle(fontWeight: FontWeight.w700),
                   ),
                   currentAccountPictureSize: Size.square(80),
-                  currentAccountPicture: CircleAvatar(
-                    foregroundImage: AssetImage(
-                      'assets/images/KU_logo_without_name.png',
-                    ),
+                  currentAccountPicture:
+                  CircleAvatar(
+
+                    backgroundImage:
+                    AssetImage('assets/images/KU_logo_without_name.png', ),
                   ),
                 ),
 
@@ -96,9 +109,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     title: "IIC/STARTUP",
                     callback: () {}),
                 Profile_Item(
-                    icon: Icons.engineering,
-                    title: "T&P Cell",
-                    callback: () {}),
+                    icon: Icons.engineering, title: "T&P Cell", callback: () {}),
                 Profile_Item(
                     icon: FontAwesomeIcons.userGraduate,
                     title: "Alumni",
@@ -133,11 +144,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     callback: () {}),
               ],
             ),
-          ),
+          ) ,
+
           bottomNavigationBar: Container(
             height: 55,
-            margin:
-                const EdgeInsets.only(bottom: 10, left: 10, right: 10, top: 5),
+            margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10,top: 5),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: const [
@@ -160,55 +171,53 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Tab(
                   icon: Icon(
                     Icons.home_outlined,
-                    color: selectedTab == 0 ? Colors.orange : Colors.black,
+                    color: selectedTab == 0 ? Colors.indigo : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Home",
                     style: TextStyle(
-                        color: selectedTab == 0 ? Colors.orange : Colors.black,
+                        color: selectedTab == 0 ? Colors.indigo : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
-                  icon: Icon(
-                    Icons.trending_up_sharp,
-                    color: selectedTab == 1 ? Colors.orange : Colors.black,
+                  icon: Icon(Icons.trending_up_sharp,
+                    color: selectedTab == 1 ? Colors.indigo : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Placement",
                     style: TextStyle(
-                        color: selectedTab == 1 ? Colors.orange : Colors.black,
+                        color: selectedTab == 1 ? Colors.indigo : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
-                  icon: Icon(
-                    FontAwesomeIcons.graduationCap,
-                    color: selectedTab == 2 ? Colors.orange : Colors.black,
+                  icon: Icon(FontAwesomeIcons.graduationCap,
+                    color: selectedTab == 2 ? Colors.indigo : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
                     "Admission",
                     style: TextStyle(
-                        color: selectedTab == 2 ? Colors.orange : Colors.black,
+                        color: selectedTab == 2 ? Colors.indigo : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
                   icon: Icon(
-                    Icons.notifications,
-                    color: selectedTab == 3 ? Colors.orange : Colors.black,
+                    Icons.event_note,
+                    color: selectedTab == 3 ? Colors.indigo : Colors.black,
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 3),
                   child: Text(
-                    "Notification",
+                    "Notify",
                     style: TextStyle(
-                        color: selectedTab == 3 ? Colors.orange : Colors.black,
+                        color: selectedTab == 3 ? Colors.indigo : Colors.black,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
                   ),
@@ -218,6 +227,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
           ),
         ),
       ),
-    );
+    );;
   }
 }

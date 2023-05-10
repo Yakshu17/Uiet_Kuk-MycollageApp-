@@ -1,6 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:uiet_kuk/Screens/BtechBtPlacement.dart';
+import 'package:uiet_kuk/Screens/BtechCsePlacement.dart';
+import 'package:uiet_kuk/Screens/BtechEcePlacement.dart';
+import 'package:uiet_kuk/Screens/BtechMePlacement.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/home_slider.dart';
 import 'package:uiet_kuk/Widgets/placement_background_image.dart';
@@ -186,7 +190,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: Text("BTECH Branches"),
+                    child: Text("BTECH BRANCHES"),
                   ),
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                 ],
@@ -195,8 +199,14 @@ class _PlacementScreenState extends State<PlacementScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  PlacementRecordWidget(callback: (){},branchtext: "CSE Records",img_url: 'assets/images/csebk.jpg'),
-                  PlacementRecordWidget(callback: (){},branchtext: "ECE Records",img_url: 'assets/images/ecebk.jpg'),
+                  PlacementRecordWidget(callback: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechCsePlacement(),));
+                  },branchtext: "CSE Records",img_url: 'assets/images/csebk.jpg'),
+                  PlacementRecordWidget(callback: (){
+
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechEcePlacement(),));
+
+                  },branchtext: "ECE Records",img_url: 'assets/images/ecebk.jpg'),
                 ],
               ),
               SizedBox(height: 30,),
@@ -204,8 +214,12 @@ class _PlacementScreenState extends State<PlacementScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  PlacementRecordWidget(callback: (){},branchtext: "ME Records",img_url: 'assets/images/mebk.jpg'),
-                  PlacementRecordWidget(callback: (){},branchtext: "BIOTECH Records",img_url: 'assets/images/biotechbk.jpg'),
+                  PlacementRecordWidget(callback: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechMePlacement(),));
+                  },branchtext: "ME Records",img_url: 'assets/images/mebk.jpg'),
+                  PlacementRecordWidget(callback: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechBtPlacement(),));
+                  },branchtext: "BIOTECH Records",img_url: 'assets/images/biotechbk.jpg'),
                 ],
               ),
             ],):
@@ -216,7 +230,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: Text("MTECH Branches"),
+                    child: Text("MTECH BRANCHES"),
                   ),
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                 ],

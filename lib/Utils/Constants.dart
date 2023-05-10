@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uiet_kuk/Screens/Admission_Screen.dart';
+import 'package:uiet_kuk/Admins/AdminsScreens/AdminAdmissionScreen.dart';
+import 'package:uiet_kuk/Admins/AdminsScreens/AdminNotifyScreen.dart';
+import 'package:uiet_kuk/Admins/AdminsScreens/AdminPlacementScreen.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Screens/Notification_Screen.dart';
 import 'package:uiet_kuk/Screens/Placement_Screen.dart';
@@ -11,6 +14,14 @@ import 'package:uiet_kuk/Screens/Profile_Screen.dart';
   AdmissionScreen(),
   NotificationScreen(),
 ];
+
+ const List<Widget> AdminPages = [
+  HomeScreen(),
+  AdminPlacementScreen(),
+  AdminAdmissionScreen(),
+  AdminNotifyscreen(),
+
+ ];
 
 const List<String> home_slider = [
  "assets/images/HOME2.jpg",
@@ -30,7 +41,7 @@ const List<String> placement_slider = [
 
 List<String> courses = ["BTECH", "MTECH"];
 Map<String, List<String>> courseTobranch = {
- "BTECH": ["CSE B", "CSE A", "ECE B", "ECE A", "ME B", "ME A", "BT"],
+ "BTECH": ["CSE","ECE","ME", "BT"],
  "MTECH": ["CSE", "ECE", "EE"]
 };
 
