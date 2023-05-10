@@ -1,8 +1,15 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:uiet_kuk/Screens/Applied_readmore.dart';
+import 'package:uiet_kuk/Screens/Ece_readmore.dart';
+import 'package:uiet_kuk/Screens/Electrical_readmore.dart';
+import 'package:uiet_kuk/Screens/Mech_readmore.dart';
 import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
+import 'package:uiet_kuk/Screens/bio_readmore.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/home_slider.dart';
+
+import 'Comp_readmore.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -251,7 +258,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>CompReadmore(),));
+                      },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
@@ -293,7 +302,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>EceReadmore(),));
+                      },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
@@ -343,7 +354,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>MechReadmore(),));
+                      },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
@@ -385,7 +398,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>BioReadmore(),));
+                      },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
@@ -435,7 +450,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>ElectricalReadmore(),));
+                      },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
@@ -477,7 +494,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>Appliedreadmore(),));
+                      },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
@@ -536,19 +555,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ]),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 15,
                 ),
-                Container(
-                  height: 2,
-                  width: 70,
-                  color: Colors.grey,
+                HomeSlider(
+                  height: 100,
+                  imglist: recruiter_slider,
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context,MaterialPageRoute(builder:  (context) => NavigationScreen(),));
-                }, child:Text("Placement Section"))
               ],
             ),
           ],

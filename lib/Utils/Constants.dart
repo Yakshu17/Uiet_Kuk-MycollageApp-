@@ -30,6 +30,18 @@ const List<String> home_slider = [
 
 
 ];
+const List<String> recruiter_slider = [
+ "assets/Recruiterimages/Recruitorimg1.png",
+ "assets/Recruiterimages/Recruitorimg2.png",
+ "assets/Recruiterimages/Recruitorimg3.png",
+ "assets/Recruiterimages/Recruitorimg4.png",
+ "assets/Recruiterimages/Recruitorimg5.png",
+ "assets/Recruiterimages/Recruitorimg6.png",
+ "assets/Recruiterimages/Recruitorimg7.png",
+ "assets/Recruiterimages/Recruitorimg8.png",
+ "assets/Recruiterimages/Recruitorimg9.png",
+ "assets/Recruiterimages/Recruitorimg10.png",
+];
 
 const List<String> placement_slider = [
  "assets/images/placement_slider1.png",
