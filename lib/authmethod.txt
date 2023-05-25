@@ -1,0 +1,25 @@
+var SharedPref =
+                                  await SharedPreferences.getInstance();
+                                  SharedPref.setBool(
+                                      SplashScreenState.KEYLOGIN, true);
+                                  final email = emailcontroller.text;
+                                  final password = passwordcontroller.text;
+                                  if (formkey.currentState!.validate()) {
+                                    if (await auth_method.login(email, password)) {
+                                  // ignore: use_build_context_synchronously
+                                  Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                  builder: (context) =>
+                                  const Home_screen()));
+                                  Utils().ShowSnackBar(
+                                  context: context,
+                                  content: "Admin Login Successfull");
+                                  print("Login successful!");
+                                  } else {
+                                  Utils().ErrorSnackBar(
+                                  context: context,
+                                  content: "Login Failed!");
+                                  print("Login failed.");
+                                  }
+                                }
