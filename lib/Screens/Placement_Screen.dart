@@ -116,7 +116,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                     pause: const Duration(milliseconds: 700),
                     animatedTexts: [
                       TyperAnimatedText(
-                          "Congratulations Yashikan & Vandana for getting selected in HUGHES at 10.8 LPA",
+                          "Congratulations Yashika & Vandana for getting selected in HUGHES at 10.8 LPA",
                           speed: const Duration(milliseconds: 150)),
                     ],
                   ),
