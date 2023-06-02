@@ -1,6 +1,7 @@
-import 'package:admin_app/Screens/home_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uiet_kuk/Screens/Home_Screen.dart';
 
 class Login_validation extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _Login_validationState extends State<Login_validation> {
       final password = _passwordController.text;
 
       if (await login(email, password)) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home_screen(),));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
         print("Login successful!");
       } else {
         print("Login failed.");

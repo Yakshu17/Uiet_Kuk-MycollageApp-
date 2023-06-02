@@ -4,9 +4,10 @@ import 'package:uiet_kuk/Screens/Applied_readmore.dart';
 import 'package:uiet_kuk/Screens/Ece_readmore.dart';
 import 'package:uiet_kuk/Screens/Electrical_readmore.dart';
 import 'package:uiet_kuk/Screens/Mech_readmore.dart';
-import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
 import 'package:uiet_kuk/Screens/bio_readmore.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
+import 'package:uiet_kuk/Utils/utils.dart';
+import 'package:uiet_kuk/Widgets/FooterWidget.dart';
 import 'package:uiet_kuk/Widgets/home_slider.dart';
 
 import 'Comp_readmore.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    Size screensize=Utils().getScreenSize();
     return Scaffold(
         body: SingleChildScrollView(
       child: SafeArea(
@@ -355,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>MechReadmore(),));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) =>MechReadmore(),));
                       },
                       child: Container(
                         height: 100,
@@ -399,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>BioReadmore(),));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) =>BioReadmore(),));
                       },
                       child: Container(
                         height: 100,
@@ -451,7 +453,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>ElectricalReadmore(),));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) =>ElectricalReadmore(),));
                       },
                       child: Container(
                         height: 100,
@@ -495,7 +497,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>Appliedreadmore(),));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context) =>Appliedreadmore(),));
                       },
                       child: Container(
                         height: 100,
@@ -565,8 +567,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
+                FooterWidget(),
+
+
               ],
             ),
           ],

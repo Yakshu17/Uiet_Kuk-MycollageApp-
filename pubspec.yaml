@@ -39,6 +39,7 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_animated_button: ^2.0.3
   url_launcher: ^6.1.11
+  colorful_safe_area: ^1.0.0
 
 
 

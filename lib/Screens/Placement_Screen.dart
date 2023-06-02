@@ -6,6 +6,7 @@ import 'package:uiet_kuk/Screens/BtechCsePlacement.dart';
 import 'package:uiet_kuk/Screens/BtechEcePlacement.dart';
 import 'package:uiet_kuk/Screens/BtechMePlacement.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
+import 'package:uiet_kuk/Widgets/FooterWidget.dart';
 import 'package:uiet_kuk/Widgets/home_slider.dart';
 import 'package:uiet_kuk/Widgets/placement_background_image.dart';
 import 'package:uiet_kuk/Widgets/placement_record_widget.dart';
@@ -253,7 +254,8 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 ],
               ),
             ],),
-            SizedBox(height: 50,),
+            SizedBox(height: 30,),
+            FooterWidget(),
 
 
           ],
