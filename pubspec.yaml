@@ -40,6 +40,7 @@ dependencies:
   flutter_animated_button: ^2.0.3
   url_launcher: ^6.1.11
   colorful_safe_area: ^1.0.0
+  loading_animation_widget: ^1.2.0+4
 
 
 
