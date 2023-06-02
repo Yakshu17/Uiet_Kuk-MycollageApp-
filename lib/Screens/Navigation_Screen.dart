@@ -69,7 +69,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Profile_Item(icon: Icons.home,
                     title: "Home",
                     callback: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminNavigationScreen(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminNavigationScreen()));
                     }),
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,

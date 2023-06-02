@@ -15,7 +15,7 @@ class _AdminPlacementScreenState extends State<AdminPlacementScreen> {
       child: Scaffold(
         floatingActionButton: FloatingActionButton(onPressed: (){
           Navigator.push(context,MaterialPageRoute(builder: (context) => AddPlacementDetails(),));
-        },child: Icon(Icons.add)),
+          },child: Icon(Icons.add)),
           body: Container(child: Center(child: Text("No Placement Detail Found ?")),)),
     );
   }
