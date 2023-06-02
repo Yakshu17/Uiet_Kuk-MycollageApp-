@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: AdministrationPage(),
+      home: SplashScreen(),
       //home: AddPlacementDetails(),
     );
   }

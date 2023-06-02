@@ -1,8 +1,7 @@
 import 'dart:math' as math;
-
+import 'package:uiet_kuk/Utils/utils.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-
 
 class AdministrationPage extends StatefulWidget {
   @override
@@ -14,6 +13,7 @@ class AdministrationPage extends StatefulWidget {
 class AdministrationPageState extends State<AdministrationPage> {
   @override
   Widget build(BuildContext context) {
+    Size screen = Utils().getScreenSize();
     return Scaffold(
       appBar: AppBar(
         title: Text("Administartion"),
@@ -74,288 +74,713 @@ class Card1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpandableNotifier(
         child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    height: 250,
-                    child: Image.asset(
-                    "assets/images/vc_ku.jpg",
-                    fit: BoxFit.fill,
-                  ),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                    ),
-                  ),
+      padding: const EdgeInsets.all(10),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 250,
+                child: Image.asset(
+                  "assets/images/vc_ku.jpg",
+                  fit: BoxFit.fill,
                 ),
-                ScrollOnExpand(
-                  scrollOnExpand: true,
-                  scrollOnCollapse: false,
-                  child: ExpandablePanel(
-                    theme: const ExpandableThemeData(
-                      headerAlignment: ExpandablePanelHeaderAlignment.center,
-                      tapBodyToCollapse: true,
-                    ),
-                    header: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "Vice-Chancellor",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
-                        )),
-                    collapsed: Text(
-                      ViceChancellorText,
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    expanded: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                          Padding(
-                              padding: EdgeInsets.only(bottom: 10),
-                              child: Text(
-                                ViceChancellorText,
-                                softWrap: true,
-                                overflow: TextOverflow.fade,
-                              )),
-                      ],
-                    ),
-                    builder: (_, collapsed, expanded) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                        child: Expandable(
-                          collapsed: collapsed,
-                          expanded: expanded,
-                          theme: const ExpandableThemeData(crossFadePoint: 0),
-                        ),
-                      );
-                    },
-                  ),
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
                 ),
-              ],
+              ),
             ),
-          ),
-        ));
+            ScrollOnExpand(
+              scrollOnExpand: true,
+              scrollOnCollapse: false,
+              child: ExpandablePanel(
+                theme: const ExpandableThemeData(
+                  headerAlignment: ExpandablePanelHeaderAlignment.center,
+                  tapBodyToCollapse: true,
+                ),
+                header: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Prof. Som Nath Sachdeva\nVice-Chancellor",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    )),
+                collapsed: Text(
+                  ViceChancellorText,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                expanded: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          ViceChancellorText,
+                          softWrap: true,
+                          overflow: TextOverflow.fade,
+                        )),
+                  ],
+                ),
+                builder: (_, collapsed, expanded) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                    child: Expandable(
+                      collapsed: collapsed,
+                      expanded: expanded,
+                      theme: const ExpandableThemeData(crossFadePoint: 0),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
+
 class Card2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpandableNotifier(
         child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    height: 250,
-                    child: Image.asset(
-                      "assets/images/UietKUKRegistrar.jpg",
-                      fit: BoxFit.fill,
-                    ),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                    ),
-                  ),
+      padding: const EdgeInsets.all(10),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 250,
+                child: Image.asset(
+                  "assets/images/UietKUKRegistrar.jpg",
+                  fit: BoxFit.fill,
                 ),
-                ScrollOnExpand(
-                  scrollOnExpand: true,
-                  scrollOnCollapse: false,
-                  child: ExpandablePanel(
-                    theme: const ExpandableThemeData(
-                      headerAlignment: ExpandablePanelHeaderAlignment.center,
-                      tapBodyToCollapse: true,
-                    ),
-                    header: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "Registrar",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
-                        )),
-                    collapsed: Text(
-                      RegistrarText,
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    expanded: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Text(
-                              RegistrarText,
-                              softWrap: true,
-                              overflow: TextOverflow.fade,
-                            )),
-                      ],
-                    ),
-                    builder: (_, collapsed, expanded) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                        child: Expandable(
-                          collapsed: collapsed,
-                          expanded: expanded,
-                          theme: const ExpandableThemeData(crossFadePoint: 0),
-                        ),
-                      );
-                    },
-                  ),
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
                 ),
-              ],
+              ),
             ),
-          ),
-        ));
+            ScrollOnExpand(
+              scrollOnExpand: true,
+              scrollOnCollapse: false,
+              child: ExpandablePanel(
+                theme: const ExpandableThemeData(
+                  headerAlignment: ExpandablePanelHeaderAlignment.center,
+                  tapBodyToCollapse: true,
+                ),
+                header: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Dr. Sanjeev Sharma\nRegistrar",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    )),
+                collapsed: Text(
+                  RegistrarText,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                expanded: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          RegistrarText,
+                          softWrap: true,
+                          overflow: TextOverflow.fade,
+                        )),
+                  ],
+                ),
+                builder: (_, collapsed, expanded) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                    child: Expandable(
+                      collapsed: collapsed,
+                      expanded: expanded,
+                      theme: const ExpandableThemeData(crossFadePoint: 0),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
+
 class Card3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpandableNotifier(
         child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    height: 250,
-                    child: Image.asset(
-                      "assets/images/uiet_director.png",
-                      fit: BoxFit.fill,
-                    ),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                    ),
-                  ),
+      padding: const EdgeInsets.all(10),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.85,
+                height: 250,
+                child: Image.asset(
+                  "assets/images/uiet_director.png",
+                  fit: BoxFit.fill,
                 ),
-                ScrollOnExpand(
-                  scrollOnExpand: true,
-                  scrollOnCollapse: false,
-                  child: ExpandablePanel(
-                    theme: const ExpandableThemeData(
-                      headerAlignment: ExpandablePanelHeaderAlignment.center,
-                      tapBodyToCollapse: true,
-                    ),
-                    header: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "Driector",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
-                        )),
-                    collapsed: Text(
-                      DirectorText,
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    expanded: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Text(
-                              DirectorText,
-                              softWrap: true,
-                              overflow: TextOverflow.fade,
-                            )),
-                      ],
-                    ),
-                    builder: (_, collapsed, expanded) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                        child: Expandable(
-                          collapsed: collapsed,
-                          expanded: expanded,
-                          theme: const ExpandableThemeData(crossFadePoint: 0),
-                        ),
-                      );
-                    },
-                  ),
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
                 ),
-              ],
+              ),
             ),
-          ),
-        ));
+            ScrollOnExpand(
+              scrollOnExpand: true,
+              scrollOnCollapse: false,
+              child: ExpandablePanel(
+                theme: const ExpandableThemeData(
+                  headerAlignment: ExpandablePanelHeaderAlignment.center,
+                  tapBodyToCollapse: true,
+                ),
+                header: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Prof. Sunil Dhingra\nDirector",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    )),
+                collapsed: Text(
+                  DirectorText,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                expanded: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                        padding: EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          DirectorText,
+                          softWrap: true,
+                          overflow: TextOverflow.fade,
+                        )),
+                  ],
+                ),
+                builder: (_, collapsed, expanded) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                    child: Expandable(
+                      collapsed: collapsed,
+                      expanded: expanded,
+                      theme: const ExpandableThemeData(crossFadePoint: 0),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
+
 class Card4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpandableNotifier(
         child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 150,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      shape: BoxShape.rectangle,
-                    ),
-                  ),
+      padding: const EdgeInsets.all(10),
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          children: <Widget>[
+            ScrollOnExpand(
+              scrollOnExpand: true,
+              scrollOnCollapse: false,
+              child: ExpandablePanel(
+                theme: const ExpandableThemeData(
+                  headerAlignment: ExpandablePanelHeaderAlignment.center,
+                  tapBodyToCollapse: true,
                 ),
-                ScrollOnExpand(
-                  scrollOnExpand: true,
-                  scrollOnCollapse: false,
-                  child: ExpandablePanel(
-                    theme: const ExpandableThemeData(
-                      headerAlignment: ExpandablePanelHeaderAlignment.center,
-                      tapBodyToCollapse: true,
-                    ),
-                    header: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "Roll Of Honors - DIRECTORS UIET",
-                          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: Colors.black),
-                        )),
-                    collapsed: Text(
-                      DirectorText,
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    expanded: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                            padding: EdgeInsets.only(bottom: 10),
-                            child: Text(
-                              DirectorText,
-                              softWrap: true,
-                              overflow: TextOverflow.fade,
-                            )),
-                      ],
-                    ),
-                    builder: (_, collapsed, expanded) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                        child: Expandable(
-                          collapsed: collapsed,
-                          expanded: expanded,
-                          theme: const ExpandableThemeData(crossFadePoint: 0),
+                header: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      "Roll Of Honors - Directors UIET",
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    )),
+                collapsed: Text(
+                  "UIET KUK had very prominent personalities as their directors. Following is the list of all of our pride Directors",
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                expanded: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                                height: 18,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: Center(
+                                      child: Text(
+                                    "Name",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 60,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "Year",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 60,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "Photograph",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: Center(
+                                      child: Text(
+                                    "PROF. P. J. GEORGE",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "16-AUG-2004 To\n 17-AUG-2006",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                    child: Image.asset(
+                                      "assets/images/prof P.J. George.png",
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: Center(
+                                      child: Text(
+                                    "PROF. O. P. BAJPAI",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "18-AUG-2006 T0\n 30-JUNE-2010",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                    child: Image.asset(
+                                      "assets/images/Prof O.P. BAJAI.png",
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: Center(
+                                      child: Text(
+                                    "PROF. DINESH AGARWAL",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "10-AUG-2010 To\n 13-JAN-2015",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                    child: Image.asset(
+                                      "assets/images/Prof Dinesh Aggrawal.png",
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: Center(
+                                      child: Text(
+                                    "PROF. SUNIL DHINGRA",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "14-JAN-2015 To\n 20-MAY-2016",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                    child: Image.asset(
+                                      "assets/images/uiet_director.png",
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(8),
+                                  child: Center(
+                                      child: Text(
+                                    "PROF. C.C. TRIPATHI",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "20-MAY-2016 To\n 05-MAY-2022",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                    child: Image.asset(
+                                      "assets/images/prof C.C. Tripathi.jpg",
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                  child: Center(
+                                      child: Text(
+                                    "PROF. SUNIL DHINGRA",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "Present",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.50,
+                                  height: 120,
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.white, width: 1),
+                                    color: Colors.orange,
+                                  ),
+                                  child: Center(
+                                    child: Image.asset(
+                                      "assets/images/uiet_director.png",
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+                builder: (_, collapsed, expanded) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                    child: Expandable(
+                      collapsed: collapsed,
+                      expanded: expanded,
+                      theme: const ExpandableThemeData(crossFadePoint: 0),
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-        ));
+          ],
+        ),
+      ),
+    ));
   }
 }
-
-
