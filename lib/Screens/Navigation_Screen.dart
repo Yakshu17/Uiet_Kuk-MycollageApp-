@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
+import 'package:uiet_kuk/Screens/AdministrationScreen.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminNavigationScreen.dart';
 import 'package:uiet_kuk/Screens/Notification_Screen.dart';
@@ -74,7 +75,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,
                     title: "Administration",
-                    callback: () {}),
+                    callback: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdministrationPage()));
+                    }),
                 Profile_Item(
                     icon: FontAwesomeIcons.building,
                     title: "Departments",
