@@ -35,23 +35,23 @@ class _AdminLoginState extends State<AdminLogin> {
               const SizedBox(
                 height: 30,
               ),
-              Text(
+              const Text(
                 "UIET",
                 style: TextStyle(
                     fontSize: 27,
                     fontWeight: FontWeight.w700,
                     fontFamily: "Googlefont"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
-              Text("KURUKSHETRA UNIVERSITY",
+              const Text("KURUKSHETRA UNIVERSITY",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
                   )),
 
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               SizedBox(
@@ -59,11 +59,11 @@ class _AdminLoginState extends State<AdminLogin> {
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      side: BorderSide(color: Colors.black54),
+                      side: const BorderSide(color: Colors.black54),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(19)),
                       backgroundColor: Colors.white),
-                  child: Text(
+                  child: const Text(
                     "Login As Admin",
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
@@ -76,24 +76,24 @@ class _AdminLoginState extends State<AdminLogin> {
                   },
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               SizedBox(
                 height: 50,
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Colors.black54,
                       ),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(19))),
-                  child: Text(
+                  child: const Text(
                     "Continue Without Login",
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
                   onPressed: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (context) =>  NavigationScreen(),));
+                   Navigator.push(context, MaterialPageRoute(builder: (context) =>  const NavigationScreen(),));
                   },
                 ),
               ),

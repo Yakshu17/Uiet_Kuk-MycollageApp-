@@ -33,10 +33,10 @@ class _PlacementScreenState extends State<PlacementScreen> {
               height: 225,
               imglist: placement_slider,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            SizedBox(
+            const SizedBox(
               height: 7,
             ),
             Text(
@@ -52,7 +52,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 )
               ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 7,
             ),
             DefaultTextStyle(
@@ -72,25 +72,25 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.4,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                 image: AssetImage('assets/images/placed3.jpg'),
                 fit: BoxFit.fill,
               )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.4,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
                     'assets/images/placed2.jpg',
@@ -99,7 +99,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             SizedBox(
@@ -124,9 +124,9 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             Container(height: 1,width: double.infinity,color: Colors.black.withOpacity(0.2),),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(
@@ -141,33 +141,33 @@ class _PlacementScreenState extends State<PlacementScreen> {
                     )
                   ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Select Your Course ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+                const Text("Select Your Course ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
                 Container(
                   height: 50,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: Color.fromRGBO(213, 217, 220,0.6),),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),color: const Color.fromRGBO(213, 217, 220,0.6),),
                   width: screenSize.width * 0.4,
-                  padding: EdgeInsets.only(left: 15,top: 5),
+                  padding: const EdgeInsets.only(left: 15,top: 5),
                   child: DropdownButtonFormField<String>(
 
                     alignment: Alignment.topCenter,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none
                     ),
-                    hint: Text("BTECH",style: TextStyle(
+                    hint: const Text("BTECH",style: TextStyle(
                         fontSize: 13,
                         fontFamily: 'GoogleFont',
                         color: Colors.black),),
                     value: selected_course,
                     items: courses.map((e) {
                       return DropdownMenuItem(
-                        child: Text(e,style: TextStyle(fontSize: 13),),
+                        child: Text(e,style: const TextStyle(fontSize: 13),),
                         value: e,
                       );
                     }).toList(),
@@ -182,45 +182,45 @@ class _PlacementScreenState extends State<PlacementScreen> {
 
               ],
             ),
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
             selected_course=='BTECH'?
             Column(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
                     child: Text("BTECH BRANCHES"),
                   ),
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   PlacementRecordWidget(callback: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechCsePlacement(),));
-                  },branchtext: "CSE Records",img_url: 'assets/images/csebk.jpg'),
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const BtechCsePlacement(),));
+                  },branchtext: "CSE Records",img_url: 'assets/images/cse1.jpg'),
                   PlacementRecordWidget(callback: (){
 
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechEcePlacement(),));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const BtechEcePlacement(),));
 
-                  },branchtext: "ECE Records",img_url: 'assets/images/ecebk.jpg'),
+                  },branchtext: "ECE Records",img_url: 'assets/images/ece1.jpg'),
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   PlacementRecordWidget(callback: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechMePlacement(),));
-                  },branchtext: "ME Records",img_url: 'assets/images/mebk.jpg'),
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const BtechMePlacement(),));
+                  },branchtext: "ME Records",img_url: 'assets/images/me1.png'),
                   PlacementRecordWidget(callback: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => BtechBtPlacement(),));
-                  },branchtext: "BIOTECH Records",img_url: 'assets/images/biotechbk.jpg'),
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const BtechBtPlacement(),));
+                  },branchtext: "BIOTECH Records",img_url: 'assets/images/bio1.jpg'),
                 ],
               ),
             ],):
@@ -229,14 +229,14 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
+                  const Padding(
+                    padding: EdgeInsets.all(5.0),
                     child: Text("MTECH BRANCHES"),
                   ),
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -244,7 +244,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   PlacementRecordWidget(callback: (){},branchtext: "ECE Records",img_url: 'assets/images/ecebk.jpg'),
                 ],
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -254,8 +254,8 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 ],
               ),
             ],),
-            SizedBox(height: 30,),
-            FooterWidget(),
+            const SizedBox(height: 30,),
+            const FooterWidget(),
 
 
           ],
