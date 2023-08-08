@@ -42,7 +42,9 @@ dependencies:
   expandable: ^5.0.1
   colorful_safe_area: ^1.0.0
   loading_animation_widget: ^1.2.0+4
-  full_screen_image: ^2.0.0
+  file_picker: ^5.3.3
+  easy_pdf_viewer: ^1.0.7
+  shared_preferences: ^2.2.0
 
 
 

@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:uiet_kuk/Screens/Restpass_screen.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import '../Utils/utils.dart';
+import 'LoginScreen.dart';
 
 class Forgetpass_Screen extends StatefulWidget {
   @override
@@ -12,6 +14,7 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
   final passwordcontroller = TextEditingController();
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  bool loading = false;
 
   bool passwordVisible = true;
 
@@ -43,9 +46,9 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.85,
-                    child: Column(
+                    child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Forgot",
                           style: TextStyle(
@@ -76,6 +79,11 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.85,
                     child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Email is Required";
+                        }
+                      },controller: emailcontroller,
                       decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.email_rounded),
                         enabledBorder: UnderlineInputBorder(
@@ -83,7 +91,7 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.indigo)),
                         label: Text(
-                          "Email ID /Mobile number",
+                          "Email ID ",
                           style: TextStyle(
                               fontSize: 17,
                               fontFamily: 'GoogleFont',
@@ -99,14 +107,38 @@ class _Forgetpass_ScreenState extends State<Forgetpass_Screen> {
                     width: MediaQuery.of(context).size.width * 0.85,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Resetpass_Screen(),));
+                      onPressed: (){
+                        loading = true;
+                        setState(() {});
+                        auth.sendPasswordResetEmail(email: emailcontroller.text.toString()).then((value) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      LoginScreen()));
+                          Utils().ShowSnackBar(
+                              context: context,
+                              content:
+                              "We have sent you email to recover password,"
+                                  "Please Check your email");
+                          loading = false;
+                          setState(() {});
+                        }).onError((error, stackTrace) {
+                          Utils().ErrorSnackBar(
+                              context: context,
+                              content: error.toString());
+                          loading = false;
+                          setState(() {});
+                        });
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.indigo,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      child: const Text(
+                      child:loading
+                          ? LoadingAnimationWidget.staggeredDotsWave(
+                          color: Colors.white, size: 40)
+                          : const Text(
                         "Submit",
                         style: TextStyle(
                           fontSize: 20,
