@@ -1,11 +1,11 @@
 import 'dart:typed_data';
 import 'package:colorful_safe_area/colorful_safe_area.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:uiet_kuk/Admins/AdminsScreens/AdminNotifyScreen.dart';
 import '../../Utils/utils.dart';
 
 class Add_Notification extends StatefulWidget {
@@ -28,11 +28,11 @@ class _Add_NotificationState extends State<Add_Notification> {
   String Profile_Url = "";
 
   Future getGallaryImage() async {
-    var picked_img = await Profile_picker.pickImage(
+    var pickedImg = await Profile_picker.pickImage(
         source: ImageSource.gallery, imageQuality: 50);
 
-    if (picked_img != null) {
-      _Profile_Img = await picked_img.readAsBytes();
+    if (pickedImg != null) {
+      _Profile_Img = await pickedImg.readAsBytes();
       Utils().ShowSnackBar(context: context, content: "Notice Image Picked !");
     } else {
       Utils().ShowSnackBar(context: context, content: "Nothing Is Picked Up !");
@@ -40,18 +40,17 @@ class _Add_NotificationState extends State<Add_Notification> {
     setState(() {});
   }
   Future getCameraImage() async {
-    var picked_img = await Profile_picker.pickImage(
+    var pickedImg = await Profile_picker.pickImage(
         source: ImageSource.camera, imageQuality: 50);
 
-    if (picked_img != null) {
-      _Profile_Img = await picked_img.readAsBytes();
-      Utils().ShowSnackBar(context: context, content: "Notice Image Picked !");
+    if (pickedImg != null) {
+      _Profile_Img = await pickedImg.readAsBytes();
+      Utils().ShowSnackBar(context: context, content: "Image is Picked !");
     } else {
       Utils().ShowSnackBar(context: context, content: "Nothing Is Picked Up !");
     }
     setState(() {});
   }
-
   Future Notification_img() async {
     Reference ref = FirebaseStorage.instance.ref();
     Reference UploadProfile =
@@ -76,7 +75,7 @@ class _Add_NotificationState extends State<Add_Notification> {
         String description = _descriptionController.text;
         String standard = _standardController.text;
         String studentname = _studentnameController.text;
-        String Notification_type = _NotificationtypeController.text;
+        String notificationType = _NotificationtypeController.text;
         await Notification_img();
         await FirebaseFirestore.instance.collection('Notification_Data').doc(
             _NotificationtypeController.text).set({
@@ -85,7 +84,7 @@ class _Add_NotificationState extends State<Add_Notification> {
           'Description': description,
           'Standard': standard,
           'Student Name': studentname,
-          'Notification-Type': Notification_type,
+          'Notification-Type': notificationType,
           'date': '${'Date and Time - '}${DateTime
               .now()
               .day}-${DateTime
@@ -100,8 +99,7 @@ class _Add_NotificationState extends State<Add_Notification> {
               .now()
               .second}',
         }).then((value) async {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const AdminNotifyscreen(),));
+          Navigator.pop(context);
           Utils().ShowSnackBar(
               context: context, content: "Notification Added Successfully");
           _dateController.clear();
@@ -174,7 +172,7 @@ class _Add_NotificationState extends State<Add_Notification> {
                                         context: context,
                                         builder: (context) => AlertDialog(
                                           content:
-                                          const Text("Choose Your Prefered file?",style:
+                                          const Text("Choose Your Prefered Image?",style:
                                           TextStyle(fontWeight: FontWeight.bold),),
                                           actions: [
                                             TextButton(
@@ -290,6 +288,7 @@ class _Add_NotificationState extends State<Add_Notification> {
                     ElevatedButton(
                       onPressed:(){
                         sendDataToFirebase();
+
                       }
                       , style: ElevatedButton.styleFrom(
                       primary: Colors.indigo,
@@ -299,7 +298,9 @@ class _Add_NotificationState extends State<Add_Notification> {
                           color: Colors.white, size: 40)
                           : const Text('Submit',),
                     ),
+
                     const SizedBox(height: 10,),
+
                   ],
                 ),
               ),
@@ -310,3 +311,4 @@ class _Add_NotificationState extends State<Add_Notification> {
     );
   }
 }
+

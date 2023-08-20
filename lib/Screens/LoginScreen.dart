@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminNavigationScreen.dart';
 import 'package:uiet_kuk/Screens/Forgetpass_screen.dart';
 import 'package:uiet_kuk/Utils/utils.dart';
+
+import '../Widgets/Student_AppBar.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -152,7 +155,11 @@ class LoginScreen extends StatefulWidget {
                       width: MediaQuery.of(context).size.width * 0.85,
                       height: 50,
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: ()async {
+                          var SharedPref =
+                              await SharedPreferences.getInstance();
+                          SharedPref.setBool(
+                              StudentAppBarState.KEYLOGIN, true);
                           if (formkey.currentState!.validate()) {
                             setState(() {
                               isLoading = true;
