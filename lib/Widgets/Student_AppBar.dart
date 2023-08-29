@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class StudentAppBar extends StatefulWidget with PreferredSizeWidget {
+class StudentAppBar extends StatefulWidget implements PreferredSizeWidget {
   const StudentAppBar({Key? key}) :preferredSize = const Size.fromHeight(60), super(key: key);
 
   final Size preferredSize;
