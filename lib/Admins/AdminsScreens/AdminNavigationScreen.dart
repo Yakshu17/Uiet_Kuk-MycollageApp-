@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
 import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
@@ -24,6 +25,16 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
     super.dispose();
     pagecontroller.dispose();
   }
+  void logoutUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs?.clear();
+    // ignore: use_build_context_synchronously
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => const AdminLogin()),
+      ModalRoute.withName("/login"),
+    );
+  }
 
   changepage(int page) {
     pagecontroller.jumpToPage(page);
@@ -40,18 +51,18 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
           appBar: AppBar(actions: [
             IconButton(onPressed: (){
               showDialog(context: context, builder:(context) => AlertDialog(
-                content: Text("Are you sure you want logout ?"),
+                content: const Text("Are you sure you want logout ?"),
                 actions: [
                   TextButton(onPressed: (){
                     Navigator.pop(context);
-                  }, child:Text("Cancel")),
+                  }, child:const Text("Cancel")),
                   TextButton(onPressed: (){
-                    Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) =>const AdminLogin(),));
-                  }, child:Text("Confirm")),
+                    logoutUser();
+                  }, child:const Text("Confirm")),
 
                 ],
               ),);
-            }, icon:Icon(Icons.logout)),
+            }, icon:const Icon(Icons.logout)),
           ],),
 
           body: PageView(
@@ -82,7 +93,7 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
                 Profile_Item(icon: Icons.home,
                     title: "Home",
                     callback: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminNavigationScreen(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const AdminNavigationScreen(),));
                     }),
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,

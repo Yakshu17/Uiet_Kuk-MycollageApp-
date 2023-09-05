@@ -1,5 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
+import 'package:uiet_kuk/Admins/AdminsScreens/AdminNavigationScreen.dart';
+import 'package:uiet_kuk/Screens/LoginScreen.dart';
+import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class StudentAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -7,10 +13,10 @@ class StudentAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   final Size preferredSize;
   @override
-  State<StudentAppBar> createState() => _StudentAppBarState();
+  State<StudentAppBar> createState() => StudentAppBarState();
 }
 
-class _StudentAppBarState extends State<StudentAppBar> {
+class StudentAppBarState extends State<StudentAppBar> {
 
   openaddmissionlink()async{
     const url="https://www.uietkuk.ac.in/admission-uiet/";
@@ -24,13 +30,38 @@ class _StudentAppBarState extends State<StudentAppBar> {
         throw "Could not launch the url";
       }
   }
+  static const String KEYLOGIN ="login";
+  void navigateUser() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var status = prefs.getBool(KEYLOGIN);
+    print(status);
+      if(status !=null) {
+        if (status == true) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => const AdminNavigationScreen()));
+          print(status);
+        } else {
+          Navigator.pushReplacement(context, MaterialPageRoute(
+              builder: (BuildContext context) => LoginScreen()));
+          print(status);
+
+        }
+      } else{
+        Navigator.pushReplacement(context, MaterialPageRoute(
+            builder: (BuildContext context) => LoginScreen()));
+        print(status);
+      }
 
 
+    @override
+    Widget build(BuildContext context) {
+      throw UnimplementedError();
+    }}
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
-      iconTheme: IconThemeData(color: Colors.black),
+      iconTheme: const IconThemeData(color: Colors.black),
       actions: [
 
         Padding(
@@ -40,38 +71,27 @@ class _StudentAppBarState extends State<StudentAppBar> {
             child: Container(
               height: 30,
               width: 120,
-              child: Center(
+              decoration:
+              BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.orange),
+              child: const Center(
                 child: Text(
                   "Apply Now",
                   style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),
                 ),
               ),
-              decoration:
-              BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.orange),
             ),
           ),
         ),
-        SizedBox(width: 5,),
-        IconButton(onPressed: (){
-          showDialog(context: context, builder:(context) => AlertDialog(
-            content: Text("Are you sure you want logout ?"),
-            actions: [
-              TextButton(onPressed: (){
-                Navigator.pop(context);
-              }, child:Text("Cancel")),
-              TextButton(onPressed: (){
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) =>const AdminLogin(),));
-              }, child:Text("Confirm")),
-
-            ],
-          ),);
-        }, icon:Icon(Icons.logout)),
-
+        const SizedBox(width: 5,),
+        IconButton(onPressed: ()  {
+          navigateUser();
+        }, icon:const Icon(Icons.admin_panel_settings_outlined)),
       ],
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(4),
+        preferredSize: const Size.fromHeight(4),
         child: Container(),
       ),
     );
   }
 }
+

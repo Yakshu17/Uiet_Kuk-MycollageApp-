@@ -14,9 +14,9 @@ class _AdminPlacementScreenState extends State<AdminPlacementScreen> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(onPressed: (){
-          Navigator.push(context,MaterialPageRoute(builder: (context) => AddPlacementDetails(),));
-          },child: Icon(Icons.add)),
-          body: Container(child: Center(child: Text("No Placement Detail Found ?")),)),
+          Navigator.push(context,MaterialPageRoute(builder: (context) => const AddPlacementDetails(),));
+          },child: const Icon(Icons.add)),
+          body: Container(child: const Center(child: Text("No Placement Detail Found ?")),)),
     );
   }
 }

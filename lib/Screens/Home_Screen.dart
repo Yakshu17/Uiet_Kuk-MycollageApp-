@@ -32,9 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 225,
               imglist: home_slider,
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(6),
+              padding: const EdgeInsets.all(6),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -71,17 +71,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: SizedBox(
                 child: Text(
                   'University Institute of Engineering & Technology (UIET) was established by Kurukshetra University '
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(8),
               child: Text(
                   'Presently, the institute is offering four B. Tech (Computer Science & Engineering,'
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                       fontSize: 15, color: Colors.black87, letterSpacing: 0.4)),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(8),
               child: Text(
                   'Seven M.Tech. course in the technically important disciplines Computer Science & Engineering,'
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                       fontSize: 15, color: Colors.black87, letterSpacing: 0.4)),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Column(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         child: CircleAvatar(
                           backgroundImage:
                               AssetImage('assets/images/uiet_director.png'),
@@ -129,10 +129,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         radius: 37,
                         backgroundColor: Colors.grey,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      const Text(
                         "PROF. SUNIL DHINGRA",
                         style: TextStyle(
                             color: Colors.indigo,
@@ -141,20 +141,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Director, UIET KUK',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 4,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 210,
                         child: Text(
                             'It gives me immense pleasure to introduce University Institute of Engineering and Technology (UIET)'
@@ -167,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -177,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Column(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         child: CircleAvatar(
                           backgroundImage:
                               AssetImage('assets/images/vc_ku.jpg'),
@@ -186,10 +186,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         radius: 37,
                         backgroundColor: Colors.grey,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      const Text(
                         "PROF. SOM NATH SACHDEVA",
                         style: TextStyle(
                             color: Colors.indigo,
@@ -198,20 +198,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Vice-Chancellor, KUK',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 4,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 210,
                         child: Text(
                             'It is a matter of great pride that UIET was established in 2004 and established'
@@ -225,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SizedBox(
@@ -243,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -251,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 70,
               color: Colors.grey,
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
             Column(
@@ -261,7 +261,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>CompReadmore(),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>const CompReadmore(),));
                       },
                       child: Container(
                         height: 100,
@@ -275,14 +275,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40,
                               width: 130,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Computer Science & Eng',
                               style: TextStyle(fontSize: 9),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -292,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
@@ -305,7 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>EceReadmore(),));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>const EceReadmore(),));
                       },
                       child: Container(
                         height: 100,
@@ -319,14 +319,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40,
                               width: 130,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Electronics & Communication Eng',
                               style: TextStyle(fontSize: 9),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -336,7 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
@@ -349,7 +349,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -371,14 +371,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40,
                               width: 130,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Mechanical Engineering',
                               style: TextStyle(fontSize: 9),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -388,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
@@ -415,14 +415,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40,
                               width: 130,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Bio Technology Dept',
                               style: TextStyle(fontSize: 9),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -432,7 +432,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
@@ -445,7 +445,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -467,14 +467,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40,
                               width: 130,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Electrical Engineering Dept',
                               style: TextStyle(fontSize: 9),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -484,7 +484,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
@@ -511,14 +511,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 40,
                               width: 130,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Applied Science Dept',
                               style: TextStyle(fontSize: 9),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -528,7 +528,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.indigo,
                               ),
-                              child: Center(
+                              child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
@@ -541,7 +541,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Text(
@@ -556,7 +556,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 Container(
@@ -566,10 +566,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     imglist: recruiter_slider,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                FooterWidget(),
+                const FooterWidget(),
 
 
               ],

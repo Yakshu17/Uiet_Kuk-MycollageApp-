@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:uiet_kuk/Admins/AdminsScreens/AdminLoginScreen.dart';
 import 'package:uiet_kuk/Screens/AdministrationScreen.dart';
-import 'package:uiet_kuk/Screens/Home_Screen.dart';
 import 'package:uiet_kuk/Admins/AdminsScreens/AdminNavigationScreen.dart';
-import 'package:uiet_kuk/Screens/Notification_Screen.dart';
-import 'package:uiet_kuk/Screens/Profile_Screen.dart';
-import 'package:uiet_kuk/Screens/Search_Screen.dart';
 import 'package:uiet_kuk/Utils/Constants.dart';
 import 'package:uiet_kuk/Widgets/Profile_Item.dart';
 import 'package:uiet_kuk/Widgets/Student_AppBar.dart';
