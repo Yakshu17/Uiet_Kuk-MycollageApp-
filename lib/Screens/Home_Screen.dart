@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    Size screensize=Utils().getScreenSize();
+    Size screensize = Utils().getScreenSize();
     return Scaffold(
         body: SingleChildScrollView(
       child: SafeArea(
@@ -228,20 +228,39 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 50,
             ),
-            SizedBox(
-              child: Text(
-                'COURSES OFFERED BY UIET',
-                style: TextStyle(
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    shadows: [
-                      Shadow(
-                        color: Colors.black.withOpacity(0.6),
-                        blurRadius: 2,
-                      )
-                    ]),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    width: 10,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        color: Colors.orange)),
+                SizedBox(
+                  child: Text(
+                    'COURSES OFFERED BY UIET',
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.6),
+                            blurRadius: 2,
+                          )
+                        ]),
+                  ),
+                ),
+                Container(
+                    width: 10,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white)),
+              ],
             ),
             const SizedBox(
               height: 10,
@@ -261,56 +280,73 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>const CompReadmore(),));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CompReadmore(),
+                            ));
                       },
-                      child: Container(
-                        height: 100,
-                        width: MediaQuery.of(context).size.width * 0.45,
-                        color: Colors.black12.withOpacity(0.06),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/laptop.png',
-                              height: 40,
-                              width: 130,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Text(
-                              'Computer Science & Eng',
-                              style: TextStyle(fontSize: 9),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.indigo,
+                      child: Card(
+                        child: Container(
+                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          decoration: BoxDecoration(
+                              color:Colors.white,
+                            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.001,blurStyle: BlurStyle.outer,spreadRadius:0.001 )]
+                          ),
+
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/images/laptop.png',
+                                height: 40,
+                                width: 130,
                               ),
-                              child: const Center(
-                                  child: Text(
-                                "Read More",
-                                style:
-                                    TextStyle(fontSize: 6, color: Colors.white),
-                              )),
-                            )
-                          ],
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              const Text(
+                                'Computer Science & Eng',
+                                style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Container(
+                                height: 20,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.orange,
+                                ),
+                                child: const Center(
+                                    child: Text(
+                                  "Read More",
+                                  style:
+                                      TextStyle(fontSize: 7, color: Colors.white,fontWeight: FontWeight.bold),
+                                )),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>const EceReadmore(),));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EceReadmore(),
+                            ));
                       },
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
-                        color: Colors.black12.withOpacity(0.06),
+                        decoration: BoxDecoration(
+                            color:Colors.white,
+                            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.001,blurStyle: BlurStyle.outer,spreadRadius:0.001 )]
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -323,8 +359,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 5,
                             ),
                             const Text(
-                              'Electronics & Communication Eng',
-                              style: TextStyle(fontSize: 9),
+                              'Electronics & Comm Eng',
+                              style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               height: 5,
@@ -334,13 +370,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.indigo,
+                                color: Colors.orange,
                               ),
                               child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
-                                    TextStyle(fontSize: 6, color: Colors.white),
+                                    TextStyle(fontSize: 7, color: Colors.white,fontWeight: FontWeight.bold),
                               )),
                             )
                           ],
@@ -362,7 +398,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
-                        color: Colors.black12.withOpacity(0.06),
+                        decoration: BoxDecoration(
+                            color:Colors.white,
+                            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.001,blurStyle: BlurStyle.outer,spreadRadius:0.001 )]
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -376,7 +415,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const Text(
                               'Mechanical Engineering',
-                              style: TextStyle(fontSize: 9),
+                              style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               height: 5,
@@ -386,13 +425,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.indigo,
+                                color: Colors.orange,
                               ),
                               child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
-                                    TextStyle(fontSize: 6, color: Colors.white),
+                                    TextStyle(fontSize: 6, color: Colors.white,fontWeight: FontWeight.bold),
                               )),
                             )
                           ],
@@ -406,7 +445,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
-                        color: Colors.black12.withOpacity(0.06),
+                        decoration: BoxDecoration(
+                            color:Colors.white,
+                            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.001,blurStyle: BlurStyle.outer,spreadRadius:0.001 )]
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -420,7 +462,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const Text(
                               'Bio Technology Dept',
-                              style: TextStyle(fontSize: 9),
+                              style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               height: 5,
@@ -430,13 +472,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.indigo,
+                                color: Colors.orange,
                               ),
                               child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
-                                    TextStyle(fontSize: 6, color: Colors.white),
+                                    TextStyle(fontSize: 6, color: Colors.white,fontWeight: FontWeight.bold),
                               )),
                             )
                           ],
@@ -455,43 +497,48 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         //Navigator.push(context, MaterialPageRoute(builder: (context) =>ElectricalReadmore(),));
                       },
-                      child: Container(
-                        height: 100,
-                        width: MediaQuery.of(context).size.width * 0.45,
-                        color: Colors.black12.withOpacity(0.06),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/electrical.png',
-                              height: 40,
-                              width: 130,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            const Text(
-                              'Electrical Engineering Dept',
-                              style: TextStyle(fontSize: 9),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Container(
-                              height: 20,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.indigo,
+                      child: Card(
+                        child: Container(
+                          height: 100,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          decoration: BoxDecoration(
+                              color:Colors.white,
+                              boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.001,blurStyle: BlurStyle.outer,spreadRadius:0.001 )]
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/images/electrical.png',
+                                height: 40,
+                                width: 130,
                               ),
-                              child: const Center(
-                                  child: Text(
-                                "Read More",
-                                style:
-                                    TextStyle(fontSize: 6, color: Colors.white),
-                              )),
-                            )
-                          ],
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              const Text(
+                                'Electrical & Comp Eng',
+                                style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Container(
+                                height: 20,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.orange,
+                                ),
+                                child: const Center(
+                                    child: Text(
+                                  "Read More",
+                                  style:
+                                      TextStyle(fontSize: 6, color: Colors.white,fontWeight: FontWeight.bold),
+                                )),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -502,7 +549,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         height: 100,
                         width: MediaQuery.of(context).size.width * 0.45,
-                        color: Colors.black12.withOpacity(0.06),
+                        decoration: BoxDecoration(
+                            color:Colors.white,
+                            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.001,blurStyle: BlurStyle.outer,spreadRadius:0.001 )]
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -516,7 +566,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const Text(
                               'Applied Science Dept',
-                              style: TextStyle(fontSize: 9),
+                              style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(
                               height: 5,
@@ -526,13 +576,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.indigo,
+                                color: Colors.orange,
                               ),
                               child: const Center(
                                   child: Text(
                                 "Read More",
                                 style:
-                                    TextStyle(fontSize: 6, color: Colors.white),
+                                    TextStyle(fontSize: 6, color: Colors.white,fontWeight: FontWeight.bold),
                               )),
                             )
                           ],
@@ -544,17 +594,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 50,
                 ),
-                Text(
-                  "OUR RECRUITERS",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      shadows: [
-                        Shadow(
-                          color: Colors.black.withOpacity(0.6),
-                          blurRadius: 2,
-                        )
-                      ]),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        width: 10,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
+                            color: Colors.orange)),
+                    SizedBox(
+                      child: Text(
+                        'OUR RECRUITERS',
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black.withOpacity(0.6),
+                                blurRadius: 2,
+                              )
+                            ]),
+                      ),
+                    ),
+                    Container(
+                        width: 10,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white)),
+                  ],
                 ),
                 const SizedBox(
                   height: 12,
@@ -570,8 +642,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 30,
                 ),
                 const FooterWidget(),
-
-
               ],
             ),
           ],

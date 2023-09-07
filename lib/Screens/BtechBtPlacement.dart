@@ -15,7 +15,7 @@ class _BtechBtPlacementState extends State<BtechBtPlacement> {
   final firestore = FirebaseFirestore.instance
       .collection('UIET PLACEMENT')
       .doc('BTECH')
-      .collection('BT')
+      .collection('BT').orderBy('Package')
       .snapshots();
   @override
   Widget build(BuildContext context) {
@@ -57,9 +57,8 @@ class _BtechBtPlacementState extends State<BtechBtPlacement> {
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            boxShadow: [BoxShadow(color: Colors.grey.shade100,blurRadius: 0,spreadRadius: 2)],
-                            border: Border.all(color: Colors.orange),
-                            color: Color.fromRGBO(213, 217, 220, 0.44),
+                            color:Colors.white,
+                            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 0.1,blurStyle: BlurStyle.outer,spreadRadius:0.1 )],
                           ),
                           child: Row(
                             //mainAxisAlignment: MainAxisAlignment.start,
@@ -75,11 +74,15 @@ class _BtechBtPlacementState extends State<BtechBtPlacement> {
                                           height: MediaQuery.of(context).size.height *0.19,
                                           width: MediaQuery.of(context).size.width * 0.3,
                                           child: CircleAvatar(
+                                            backgroundImage: AssetImage('assets/images/profile.jpg'),
                                             radius: 50,
-                                            backgroundColor: Colors.white70,
-                                            backgroundImage: NetworkImage(snapshot
-                                                .data!.docs[index]["Student_Img"]
-                                                .toString()),
+                                            child: CircleAvatar(
+                                              radius: 50,
+                                              backgroundColor: Colors.white70,
+                                              backgroundImage: NetworkImage(snapshot
+                                                  .data!.docs[index]["Student_Img"]
+                                                  .toString()),
+                                            ),
                                           ),
                                         ),
                                         Container(

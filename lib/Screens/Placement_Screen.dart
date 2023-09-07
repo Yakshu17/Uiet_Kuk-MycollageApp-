@@ -129,17 +129,39 @@ class _PlacementScreenState extends State<PlacementScreen> {
             const SizedBox(
               height: 30,
             ),
-            Text(
-              'UIET PLACEMENT RECORDS',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24,
-                  shadows: [
-                    Shadow(
-                      color: Colors.black.withOpacity(0.6),
-                      blurRadius: 2,
-                    )
-                  ]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    width: 10,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10)),
+                        color: Colors.orange)),
+                SizedBox(
+                  child: Text(
+                    'UIET PLACEMENT RECORDS',
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black.withOpacity(0.6),
+                            blurRadius: 2,
+                          )
+                        ]),
+                  ),
+                ),
+                Container(
+                    width: 10,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white)),
+              ],
             ),
             const SizedBox(
               height: 50,
@@ -191,7 +213,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                   const Padding(
                     padding: EdgeInsets.all(5.0),
-                    child: Text("BTECH BRANCHES"),
+                    child: Text("BTECH BRANCHES",style: TextStyle(fontWeight: FontWeight.bold),),
                   ),
                   Container(height: 1,width: MediaQuery.of(context).size.width*0.3,color: Colors.grey.withOpacity(0.7),),
                 ],

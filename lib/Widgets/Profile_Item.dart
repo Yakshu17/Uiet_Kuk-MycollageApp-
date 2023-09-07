@@ -15,28 +15,29 @@ class Profile_Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SizedBox(
-          width: 10,
-        ),
-        Expanded(
-          child: ListTile(
-            title: Text(
-              "$title",
-              style: TextStyle(fontSize: 17, color: Colors.black),
-            ),
-            leading: Icon(icon,color: Colors.black,),
+    return InkWell(
+      onTap: callback,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            width: 10,
           ),
-        ),
-        IconButton(
-            onPressed: callback,
-            icon: Icon(
-              Icons.navigate_next,
-              color: Colors.black,
-            )),
-      ],
+          Expanded(
+            child: ListTile(
+              title: Text(
+                "$title",
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
+              leading: Icon(icon,color: Colors.black,),
+            ),
+          ),
+          Icon(
+                Icons.navigate_next,
+                color: Colors.black,
+              ),
+        ],
+      ),
     );
   }
 }

@@ -11,6 +11,7 @@ import 'package:uiet_kuk/Screens/Navigation_Screen.dart';
 import 'package:uiet_kuk/Screens/Signup_Screen.dart';
 import 'package:uiet_kuk/Screens/Splash_Screen.dart';
 import 'package:uiet_kuk/Screens/Admission_Screen.dart';
+import 'package:uiet_kuk/Screens/Admission_Screen.dart';
 import 'package:uiet_kuk/Screens/admissionScreenBioTech.dart';
 
 import 'Admins/AdminsScreens/AdminLoginScreen.dart';
@@ -32,10 +33,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'uiet-kuk',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.orange,
       ),
       home: SplashScreen(),
-      //home: AddPlacementDetails(),
+      //home: Test(),
     );
   }
 }

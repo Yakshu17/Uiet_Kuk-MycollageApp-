@@ -1,3 +1,4 @@
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,9 +47,12 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: SafeArea(
+      child: ColorfulSafeArea(
+        color: Colors.orange,
         child: Scaffold(
-          appBar: AppBar(actions: [
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            actions: [
             IconButton(onPressed: (){
               showDialog(context: context, builder:(context) => AlertDialog(
                 content: const Text("Are you sure you want logout ?"),
@@ -71,6 +75,7 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
               controller: pagecontroller,
               children: AdminPages),
 
+          /*
           drawer: Drawer(
             child: ListView(
               children: [
@@ -156,6 +161,7 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
               ],
             ),
           ) ,
+        */
 
           bottomNavigationBar: Container(
             height: 55,
@@ -238,6 +244,6 @@ class _AdminNavigationScreenState extends State<AdminNavigationScreen> {
           ),
         ),
       ),
-    );;
+    );
   }
 }

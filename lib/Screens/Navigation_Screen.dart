@@ -1,3 +1,4 @@
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uiet_kuk/Screens/AdministrationScreen.dart';
@@ -36,7 +37,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: SafeArea(
+      child: ColorfulSafeArea(
+        color: Colors.orange,
         child: Scaffold(
           appBar: StudentAppBar(),
           body: PageView(
@@ -49,10 +51,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
               children: [
                 const UserAccountsDrawerHeader(
                   accountName: Text("UIET",
-                      style: TextStyle(fontWeight: FontWeight.w800)),
+                      style: TextStyle(fontWeight: FontWeight.w800,color: Colors.white)),
                   accountEmail: Text(
                     "KURUKSHETRA UNIVERSITY",
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                    style: TextStyle(fontWeight: FontWeight.w700,color: Colors.white),
                   ),
                   currentAccountPictureSize: Size.square(80),
                   currentAccountPicture: CircleAvatar(
@@ -65,7 +67,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 Profile_Item(icon: Icons.home,
                     title: "Home",
                     callback: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminNavigationScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationScreen()));
                     }),
                 Profile_Item(
                     icon: Icons.admin_panel_settings_sharp,
@@ -73,10 +75,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     callback: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => AdministrationPage()));
                     }),
-                Profile_Item(
-                    icon: FontAwesomeIcons.building,
-                    title: "Departments",
-                    callback: () {}),
+                    Text('Features coming soon'),
+               
+                    /*
                 Profile_Item(
                     icon: Icons.person,
                     title: "Faculties",
@@ -129,6 +130,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     icon: FontAwesomeIcons.comment,
                     title: "Complaints",
                     callback: () {}),
+                */
               ],
             ),
           ),
